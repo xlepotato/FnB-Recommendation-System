@@ -71,9 +71,6 @@ def main():
     for something2 in userinterface2():
         print(something2)
     User_options = input("Option: ")
-    if User_options == 1:
-
-    elif User_options == 2:
 
 
 if __name__ == '__main__':
