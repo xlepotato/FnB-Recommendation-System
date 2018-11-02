@@ -28,7 +28,7 @@ def get_user_location():
     screen = pygame.display.set_mode((W, H))
 
     # read image file and rescale it to the window size
-    screenIm = pygame.image.load("C:/Users/HP_Demo/Desktop/CZ1003 Assignment/PycharmProjects/NTU Campus.png")
+    screenIm = pygame.image.load("img/NTU_campus.png")
     screenIm = pygame.transform.scale(screenIm, (W, H))
 
     # add the image over the screen object
