@@ -42,16 +42,39 @@ def get_user_location():
 
     # get outputs of Mouseclick event handler
     buttonX, buttonY = MouseClick()
-    print((buttonX, buttonY))
+    print("Your current coordinates is:",(buttonX, buttonY))
+
+
+def userinterface1():
+    user_options1 = ["Welcome to our F&B recommendation app!!!",
+                     "In this app, we will help you identify, sort food courts based on your preferences.",
+                     "Please select your current location in the map displayed after this message"]
+    return user_options1
+
+
+def userinterface2():
+    user_options2 = ["To list all the canteens in NTU, please press 1",
+                     "To search for a canteen near you, please press 2",
+                     "To search for a canteen with your preferred food, please press 3",
+                     "To display canteens by rank, please press 4",
+                     "To search for food within a selected price range, please press 5",
+                     "To display canteens by distance nearest to you, please press 6"]
+    return user_options2
+
 
 
 def main():
+    for something in userinterface1():
+        print(something)
     pygame.init()
     get_user_location()
+    for something2 in userinterface2():
+        print(something2)
+    User_options = input("Option: ")
+    if User_options == 1:
+
+    elif User_options == 2:
 
 
 if __name__ == '__main__':
     main()
-
-
-    # hii
