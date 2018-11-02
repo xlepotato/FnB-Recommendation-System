@@ -42,7 +42,7 @@ def get_user_location():
 
     # get outputs of Mouseclick event handler
     buttonX, buttonY = MouseClick()
-    print("Your current coordinates is:",(buttonX, buttonY))
+    print("Your current coordinates is:", (buttonX, buttonY))
 
 
 def userinterface1():
@@ -62,7 +62,6 @@ def userinterface2():
     return user_options2
 
 
-
 def main():
     for something in userinterface1():
         print(something)
@@ -75,6 +74,5 @@ def main():
 
 if __name__ == '__main__':
     main()
-
 
 print("HEllo world")
