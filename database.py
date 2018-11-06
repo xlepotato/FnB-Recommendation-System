@@ -20,6 +20,16 @@ class Food:
     def get_calorie(self):
         return self.calorie
 
+    def set_stall(self, stall):
+        self.stall = stall
+    def set_name(self, name):
+        self.name = name
+    def set_price(self,price):
+        self.price = price
+    def set_calorie(self, calorie):
+        self.calorie = calorie
+
+
 class Canteen:
     def __init__(self, name, address, isHalal, isVegetarian, foodMenu, rank, hygieneID, coordinates,
                  handPhone, workingTime, numberOfStalls, capacity, isOpenWkd, isOpenPH):
