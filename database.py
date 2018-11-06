@@ -1,7 +1,3 @@
-
-
-#Separate class for food
-
 class Food:
     #initialization when class is created
     def __init__(self, stall, name, price, calorie):
@@ -10,6 +6,10 @@ class Food:
         self.price = price
         self.calorie = calorie
 
+    '''
+           Function: Getter Methods
+           Purpose: To retrieve a particular attributes from the Food class
+    '''
     #return the string description of the food
     def description(self):
         result = "Food {}".format(self.name)
@@ -32,6 +32,10 @@ class Food:
     def get_calorie(self):
         return self.calorie
 
+    '''
+          Function: Setter Methods
+          Purpose: To set a new value for a particular attributes in the Food class
+      '''
     def set_stall(self, stall):
         self.stall = stall
     def set_name(self, name):
@@ -162,6 +166,13 @@ class ListOfCanteens:
             canteen.menu()
             print()
 
+    def retrieve_canteen(self):
+        print(self.list , " Print the canteen list ")
+        canlist = []
+        for canteen in self.list:
+            canlist.append(canteen)
+        return canlist
+
     def search_by_food(self, foodName):
         result = []
         for canteen in self.list:
@@ -170,8 +181,7 @@ class ListOfCanteens:
                     result.append(canteen)
         return result
 
-   # def retrieve_canteen_by_food_name(self):
-       # for canteen in self-list:
+
 
 
 
