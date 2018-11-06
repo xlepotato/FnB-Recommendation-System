@@ -66,7 +66,7 @@ def main():
         elif user_option == "z":
             break
 
-        # user to press y to continue and any other key to exit
+        # user to press y to continue or any other key to exit
         toContinue = input("Do you still want to continue? Enter 'Y' to continue, otherwise, enter any key to exit: ").capitalize()
         if toContinue == 'Y':
             continue
