@@ -48,29 +48,35 @@ class Canteen:
         self.isOpenWkd = isOpenWkd
         self.isOpenPH = isOpenPH
 
+    #Getter Methods
     def get_name(self):
         return self.name
-
     def address(self):
         return self.address
-
     def isHalal(self):
         return self.isHalal
-
     def isVegetarian(self):
         return self.isVegetarian
-
     def get_foodMenu(self):
         return self.foodMenu
-
     def get_rank(self):
         return self.rank
-
     def get_hygieneID(self):
         return self.hygieneID
-
     def get_coordinates(self):
         return self.coordinates
+    def get_handPhone(self):
+        return self.handPhone
+    def get_workingTime(self):
+        return self.workingTime
+    def get_numberOfStalls(self):
+        return self.numberOfStalls
+    def get_capacity(self):
+        return self.capacity
+    def get_isOpenWkd(self):
+        return self.isOpenWkd
+    def get_isOpenPH(self):
+        return self.isOpenPH
 
 
 
