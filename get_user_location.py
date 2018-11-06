@@ -31,9 +31,11 @@ def sort_distance(x2,y2):
         distance1 = [int(distance), i]
         ##distance between user location and each canteen
         distance2.append(distance1)
-        distance3 = sorted(sorted(distance2, key=lambda x: x[1]), key=lambda x: x[0], reverse=False)
+    distance3 = sorted(sorted(distance2, key=lambda x: x[1]), key=lambda x: x[0], reverse=False)
+    print(distance3)
     print("The canteen is sorted by distance below.")
     print()
+    #print ("The distance from you is: ", i[0])
     for i in distance3:
         print(database.canteensNTU.list[i[1]].info())
         print()
@@ -65,6 +67,6 @@ def get_user_location():
     buttonX, buttonY = MouseClick()
     sort_distance(buttonX,buttonY)
 
-# pygame.init()
-# get_user_location()
+pygame.init()
+get_user_location()
 
