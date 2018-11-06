@@ -1,12 +1,24 @@
+
+
+#Separate class for food
+
 class Food:
+    #initialization when class is created
     def __init__(self, stall, name, price, calorie):
         self.stall = stall
         self.name = name
         self.price = price
         self.calorie = calorie
 
+    #return the string description of the food
     def description(self):
-        return "Food {} from {} stall costs ${} and has {} kcal".format(self.name, self.stall, self.price, self.calorie)
+        result = "Food {}".format(self.name)
+        if self.stall != "NA":
+            result = result + " from stall {}".format(self.stall)
+        result = result + " costs ${}".format(self.price)
+        if self.calorie != "NA":
+            result = result + " has {} kcal".format(self.calorie)
+        return result
 
     def get_stall(self):
         return self.stall
