@@ -48,10 +48,37 @@ class Canteen:
         self.isOpenWkd = isOpenWkd
         self.isOpenPH = isOpenPH
 
+    def get_name(self):
+        return self.name
+
+    def address(self):
+        return self.address
+
+    def isHalal(self):
+        return self.isHalal
+
+    def isVegetarian(self):
+        return self.isVegetarian
+
+    def get_foodMenu(self):
+        return self.foodMenu
+
+    def get_rank(self):
+        return self.rank
+
+    def get_hygieneID(self):
+        return self.hygieneID
+
+    def get_coordinates(self):
+        return self.coordinates
+
+
+
     def menu(self):
         print("Canteen", self.name, "has foods like:")
         for food in self.foodMenu:
             print(food.description())
+
 
     def info(self):
         print("Name:", self.name)
