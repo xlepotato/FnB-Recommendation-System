@@ -1,3 +1,4 @@
+from math import sqrt
 
 
 # Separate class for the Food
@@ -19,35 +20,6 @@ class Food:
             result = result + " has {} kcal".format(self.calorie)
         return result
 
-    '''
-        Function: Getter Methods
-        Purpose: To retrieve a particular attributes from the Food class
-    '''
-    def get_stall(self):
-        return self.stall
-
-    def get_name(self):
-        return self.name
-
-    def get_price(self):
-        return self.price
-
-    def get_calorie(self):
-        return self.calorie
-
-    '''
-        Function: Setter Methods
-        Purpose: To set a new value for a particular attributes in the Food class
-    '''
-    def set_stall(self, stall):
-        self.stall = stall
-    def set_name(self, name):
-        self.name = name
-    def set_price(self,price):
-        self.price = price
-    def set_calorie(self, calorie):
-        self.calorie = calorie
-
 
 # Separate class for the Canteen
 class Canteen:
@@ -67,72 +39,6 @@ class Canteen:
         self.numberOfStalls = numberOfStalls
         self.capacity = capacity
         self.isOpenWkd = isOpenWkd
-        self.isOpenPH = isOpenPH
-
-    '''
-        Function: Getter Methods
-        Purpose: To retrieve a particular attributes from the Canteen class
-    '''
-    def get_name(self):
-        return self.name
-    def get_address(self):
-        return self.address
-    def get_isHalal(self):
-        return self.isHalal
-    def get_isVegetarian(self):
-        return self.isVegetarian
-    def get_foodMenu(self):
-        return self.foodMenu
-    def get_rank(self):
-        return self.rank
-    def get_hygieneID(self):
-        return self.hygieneID
-    def get_coordinates(self):
-        return self.coordinates
-    def get_handPhone(self):
-        return self.handPhone
-    def get_workingTime(self):
-        return self.workingTime
-    def get_numberOfStalls(self):
-        return self.numberOfStalls
-    def get_capacity(self):
-        return self.capacity
-    def get_isOpenWkd(self):
-        return self.isOpenWkd
-    def get_isOpenPH(self):
-        return self.isOpenPH
-
-    '''
-        Function: Setter Methods
-        Purpose: To set a new value for a particular attributes in the Canteen class
-    '''
-    def set_address(self, address):
-        self.stall = address
-    def set_name(self, name):
-        self.name = name
-    def set_isHalal(self, isHalal):
-        self.isHalal = isHalal
-    def set_isVegetarian(self, isVegetarian):
-        self.isVegetarian = isVegetarian
-    def set_foodMenu(self, foodMenu):
-        self.foodMenu = foodMenu
-    def set_rank(self, rank):
-        self.rank = rank
-    def set_hygieneID(self, hygieneID):
-        self.hygieneID = hygieneID
-    def set_coordinates(self, coordinates):
-        self.coordinates = coordinates
-    def set_handPhone(self, handPhone):
-        self.handPhone = handPhone
-    def set_workingTime(self, workingTime):
-        self.workingTime = workingTime
-    def set_numberOfStalls(self, price):
-        self.price = price
-    def set_capacity(self, capacity):
-        self.capacity = capacity
-    def set_isOpenWkd(self, isOpenWkd):
-        self.isOpenWkd = isOpenWkd
-    def set_isOpenPH(self, isOpenPH):
         self.isOpenPH = isOpenPH
 
     # prints the menu description of the Canteen
@@ -157,6 +63,11 @@ class Canteen:
         print("Open on public holidays:", "Yes" if self.isOpenPH is True else "No")
 
 
+# distance between two points
+def distance_a_b(a, b):
+    return sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2)
+
+
 # Separate class for the List of Canteens
 class ListOfCanteens:
     # initialization when the List of Canteens class is created
@@ -174,14 +85,6 @@ class ListOfCanteens:
             print()
             canteen.menu()
             print()
-
-    # returns the list of canteens
-    def retrieve_canteen(self):
-        print(self.list , " Print the canteen list ")
-        canlist = []
-        for canteen in self.list:
-            canlist.append(canteen)
-        return canlist
 
     # search for the canteens which has the foodName in the menu
     # returns the list of canteens
@@ -204,6 +107,21 @@ class ListOfCanteens:
                     list_foods.append(food)
             result.append((canteen, list_foods))
         return result
+
+    # this function sorts the canteens by using the current position of the user
+    def sort_distance(self, current_position):
+        list_canteens = []
+        for canteen in self.list:
+            # distance between user location and each canteen
+            list_canteens.append((distance_a_b(current_position, canteen.coordinates), canteen))
+
+        list_canteens = sorted(list_canteens, key=lambda x: x[0])
+        print("The canteens are sorted by distance from your position:")
+        for element in list_canteens:
+            print("Distance from your position to this canteen is", round(element[0], 2))
+            element[1].info()
+            print()
+
 
 # canteensNTU has all the data
 canteensNTU = ListOfCanteens()
