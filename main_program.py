@@ -62,12 +62,15 @@ def main():
             else:
                 database.canteensNTU.search_by_price((float(input1), float(input2)))
 
+        # user to press z to exit the application
         elif user_option == "z":
             break
-        toContinue = input("Do you still want to continue? Enter 'Y' to continue or 'N' to exit: ").capitalize()
+
+        # user to press y to continue and any other key to exit
+        toContinue = input("Do you still want to continue? Enter 'Y' to continue, otherwise, enter any key to exit: ").capitalize()
         if toContinue == 'Y':
             continue
-        elif toContinue == 'N':
+        else:
             print("Thank you for using our application ")
             break
 

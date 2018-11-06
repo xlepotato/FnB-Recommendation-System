@@ -1,8 +1,10 @@
+# messages to appear at the start of application
 def welcome_message():
     introduction = ["Welcome to our F&B recommendation app!!!"," ",
                     "In this app, we will help you identify and sort canteens/food based on your preferences."]
     return introduction
 
+# messages to appear for user to select options from our list_of_options
 def list_of_options():
     message_options = ["Below are the list of options you can choose from:"," ",
                        "Option a: List of canteens at NTU",
