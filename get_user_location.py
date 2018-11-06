@@ -2,8 +2,8 @@ import pygame
 import database
 from math import sqrt
 
-## define event handler for mouse click.
-## this event handler will be fired (activated) when user clicks a mouse button anywhere in the display window
+# define event handler for mouse click.
+# this event handler will be fired (activated) when user clicks a mouse button anywhere in the display window
 def MouseClick():
     finish = False
     while finish == False:
@@ -23,22 +23,24 @@ distance2 = []
 
 
 def sort_distance(x2,y2):
-    ## getting distance based on the point indicated in the map
-    for i in range(0,7):
-        x1 = database.canteensNTU.list[i].coordinates[0]
-        y1 = database.canteensNTU.list[i].coordinates[1]
+    # getting distance based on the point indicated in the map
+
+    listCanteens = []
+
+    for canteen in database.canteensNTU.list:
+        x1 = canteen.coordinates[0]
+        y1 = canteen.coordinates[1]
+        # distance between user location and each canteen
         distance = sqrt(((x2-x1)**2) + ((y2-y1)**2))
-        distance1 = [int(distance), database.canteensNTU.list[i].name]
-        ##distance between user location and each canteen
-        distance2.append(distance1)
-    distance3 = sorted(sorted(distance2, key=lambda x: x[1]), key=lambda x: x[0], reverse=False)
-    print(distance3)
-    print("The canteen is sorted by distance below.")
-    print()
-    #print ("The distance from you is: ", i[0])
-    for i in distance3:
-        print(i[1])
+        listCanteens.append((distance, canteen))
+
+    listCanteens = sorted(listCanteens, key = lambda x: x[0])
+    print("The canteens are sorted by distance from your position:")
+    for element in listCanteens:
+        print("Distance from your position to this canteen is", round(element[0], 2))
+        element[1].info()
         print()
+
 
 def get_user_location():
     ## make necessary initializations for Width, Height
