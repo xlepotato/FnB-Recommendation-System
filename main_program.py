@@ -6,12 +6,12 @@ import pygame
 
 def main():
     print()
-    for interface1 in user_interface.userinterface1():
-        print(interface1)
+    for line_in_welcome in user_interface.welcome_message():
+        print(line_in_welcome)
     print()
     while True:
-        for interface2 in user_interface.userinterface2():
-            print(interface2)
+        for line_in_options in user_interface.list_of_options():
+            print(line_in_options)
         print()
 
         user_option = input("Pls select your preferred option (eg. a,b,c etc.): ")
@@ -21,36 +21,37 @@ def main():
             print("Please select the option correctly.")
             user_option = input("Pls select your preferred option (eg. a,b,c etc.): ")
             print()
-        else:
-            if user_option == "a":
-                database.canteensNTU.info()
-            elif user_option == "e":
-                # canList = food.search_by_food("Hamburger", database.canteensNTU.retrieve_canteen())
-                food_name = input("Enter the name of the food to search ")
-                print(food_name)
-                canList = database.canteensNTU.search_by_food(food_name)
-                # print(canList)
-                for i in canList:
-                    i.info()
 
-            elif user_option == "b":
-                print("Nyan")
-            elif user_option == "c":
-                get_user_location.get_user_location()
-            elif user_option == "z":
-                break
+        if user_option == "a":
+            database.canteensNTU.info()
+        elif user_option == "b":
 
-            toContinue = input("Do you still want to continue? Enter 'Y' to continue or 'N' to exit: ").capitalize()
-            if toContinue == 'Y':
-                continue
-            elif toContinue == 'N':
-                print("Thank you for using our application ")
-                break
+        elif user_option == "c":
+            get_user_location.get_user_location()
+        elif user_option == "d":
+
+        elif user_option == "e":
+        # canList = food.search_by_food("Hamburger", database.canteensNTU.retrieve_canteen())
+        food_name = input("Enter the name of the food to search ")
+        print(food_name)
+        canList = database.canteensNTU.search_by_food(food_name)
+        # print(canList)
+        for i in canList:
+            i.info()
+
+        elif user_option == "z":
+            break
+
+        toContinue = input("Do you still want to continue? Enter 'Y' to continue or 'N' to exit: ").capitalize()
+        if toContinue == 'Y':
+            continue
+        elif toContinue == 'N':
+            print("Thank you for using our application ")
+            break
 
 
 if __name__ == '__main__':
     pygame.init()
-
     main()
 
 
