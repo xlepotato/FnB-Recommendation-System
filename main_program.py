@@ -29,7 +29,7 @@ def main():
         User_options = input("Pls select your preferred option (eg. a,b,c etc.): ")
         print()
 
-        while not User_options == "a" and "b" and "c" and "d" and "e" and "f":
+        while len(User_options) != 1 or (not 'a' <= User_options[0] <= 'e'):
             print("Please select the option correctly.")
             User_options = input("Pls select your preferred option (eg. a,b,c etc.): ")
             print()
