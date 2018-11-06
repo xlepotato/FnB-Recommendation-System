@@ -8,6 +8,18 @@ class Food:
     def description(self):
         return "Food {} from {} stall costs ${} and has {} kcal".format(self.name, self.stall, self.price, self.calorie)
 
+    def get_stall(self):
+        return self.stall
+
+    def get_name(self):
+        return self.name
+
+    def get_price(self):
+        return self.price
+
+    def get_calorie(self):
+        return self.calorie
+
 class Canteen:
     def __init__(self, name, address, isHalal, isVegetarian, foodMenu, rank, hygieneID, coordinates,
                  handPhone, workingTime, numberOfStalls, capacity, isOpenWkd, isOpenPH):
@@ -59,6 +71,11 @@ class ListOfCanteens:
             print()
             canteen.menu()
             print()
+
+   # def retrieve_canteen_by_food_name(self):
+       # for canteen in self-list:
+
+
 
 
 

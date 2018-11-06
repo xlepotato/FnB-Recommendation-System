@@ -38,6 +38,8 @@ def main():
 
         if User_options == "a":
             database.canteensNTU.info()
+      #  elif User_options == "e":
+          #  database.
 
         Continue = input("Please enter z to return to the options menu, otherwise press any key to exit: ")
         if Continue == "z":
