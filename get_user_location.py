@@ -65,6 +65,6 @@ def get_user_location():
     buttonX, buttonY = MouseClick()
     sort_distance(buttonX,buttonY)
 
-pygame.init()
-get_user_location()
+# pygame.init()
+# get_user_location()
 
