@@ -43,4 +43,4 @@ def get_user_location():
     pygame.display.flip()
 
     # get outputs of MouseClick event handler, and pass it to sort_by_distance
-    database.canteensNTU.sort_by_distance(MouseClick())
+    database.canteensNTU.sort_distance(MouseClick())
