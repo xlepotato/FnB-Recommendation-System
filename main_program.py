@@ -1,12 +1,7 @@
 import get_user_location
 import database
 import user_interface
-from time import sleep
 import pygame
-import sort_distance
-import food
-import sort_by_rank
-import search_by_price
 
 
 def main():
@@ -30,7 +25,7 @@ def main():
             if user_option == "a":
                 database.canteensNTU.info()
             elif user_option == "e":
-                #canList = food.search_by_food("Hamburger", database.canteensNTU.retrieve_canteen())
+                # canList = food.search_by_food("Hamburger", database.canteensNTU.retrieve_canteen())
                 food_name = input("Enter the name of the food to search ")
                 print(food_name)
                 canList = database.canteensNTU.search_by_food(food_name)
