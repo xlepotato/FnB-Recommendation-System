@@ -48,9 +48,20 @@ def main():
         # Display food within a selected price range
         elif user_option == "e":
             print("Input two numbers denoting your preferred price range: ")
-            x = float(input("Minimum value: "))
-            y = float(input("Maximum value: "))
-            database.canteensNTU.search_by_price((x, y))
+            input1 = input("Minimum value: ")
+            input2 = input("Maximum value: ")
+            try:
+                float(input1)
+                float(input2)
+                if float(input1) > float(input2):
+                    raise Exception("First input should be less than or equal to the second input!")
+            except ValueError:
+                print("Wrong input format!")
+            except Exception as error:
+                print(error)
+            else:
+                database.canteensNTU.search_by_price((float(input1), float(input2)))
+
         elif user_option == "z":
             break
         toContinue = input("Do you still want to continue? Enter 'Y' to continue or 'N' to exit: ").capitalize()
