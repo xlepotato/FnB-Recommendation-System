@@ -48,7 +48,10 @@ class Canteen:
         self.isOpenWkd = isOpenWkd
         self.isOpenPH = isOpenPH
 
-    #Getter Methods
+    '''
+        Function: Getter Methods
+        Purpose: To retrieve a particular attributes from the Canteen class
+    '''
     def get_name(self):
         return self.name
     def get_address(self):
@@ -78,31 +81,38 @@ class Canteen:
     def get_isOpenPH(self):
         return self.isOpenPH
 
+    '''
+        Function: Setter Methods
+        Purpose: To set a new value for a particular attributes in the Canteen class
+    '''
     def set_address(self, address):
         self.stall = address
-
     def set_name(self, name):
         self.name = name
-
     def set_isHalal(self, isHalal):
         self.isHalal = isHalal
-
     def set_isVegetarian(self, isVegetarian):
         self.isVegetarian = isVegetarian
-        # def set_calorie(self, calorie):
-        #     self.calorie = calorie
-        #
-        # def set_stall(self, stall):
-        #     self.stall = stall
-        #
-        # def set_name(self, name):
-        #     self.name = name
-        #
-        # def set_price(self, price):
-        #     self.price = price
-        #
-        # def set_calorie(self, calorie):
-        #     self.calorie = calorie
+    def set_foodMenu(self, foodMenu):
+        self.foodMenu = foodMenu
+    def set_rank(self, rank):
+        self.rank = rank
+    def set_hygieneID(self, hygieneID):
+        self.hygieneID = hygieneID
+    def set_coordinates(self, coordinates):
+        self.coordinates = coordinates
+    def set_handPhone(self, handPhone):
+        self.handPhone = handPhone
+    def set_workingTime(self, workingTime):
+        self.workingTime = workingTime
+    def set_numberOfStalls(self, price):
+        self.price = price
+    def set_capacity(self, capacity):
+        self.capacity = capacity
+    def set_isOpenWkd(self, isOpenWkd):
+        self.isOpenWkd = isOpenWkd
+    def set_isOpenPH(self, isOpenPH):
+        self.isOpenPH = isOpenPH
 
 
     def menu(self):
