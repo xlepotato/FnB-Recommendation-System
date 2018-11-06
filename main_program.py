@@ -3,6 +3,10 @@ import database
 import user_interface
 from time import sleep
 import pygame
+import sort_distance
+import search_by_food
+import sort_by_rank
+import search_by_price
 
 
 
