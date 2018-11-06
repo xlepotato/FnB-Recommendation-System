@@ -159,10 +159,68 @@ class ListOfCanteens:
 
 canteensNTU = ListOfCanteens()
 canteensNTU.add(Canteen("McDonald's", "North Spine Plaza 76 Nanyang Drive N2.1-01-08 Singapore 637331", True, True,
-                        [Food("NA", "Big Mac", 4.2, "522")],
+                        [Food("NA", "Big Mac", 4.2, "522"),
+                         Food("NA", "McSpicy", 3.0, "522"),
+                         Food("NA", "McChicken", 3.0, "385"),
+                         Food("NA", "Cheeseburger", 2.0, "300"),
+                         Food("NA", "Hamburger", 1.5, "252"),
+                         Food("NA", "McWings", 4.0, "498"),
+                         Food("NA", "BBQ Beef Burger with Egg", 4.0, "450"),
+                         Food("NA", "Mango Peach Chiller", 3.0, "200"),
+                         Food("NA", "ChocoCone", 3.0, "295"),
+                         Food("NA", "Mudpie McFlurry", 5.0, "532")],
                         3.9, 'A', (220, 172), "6777 3777", "Mon to Sat: 7am to 12am, Sun & PH: 10am to 10pm", -1,
                         999, True, True
                         ))
+
+canteensNTU.add(Canteen("KFC", "North Spine Plaza 76 Nanyang Drive N2.1-01-04 Singapore 637331", True, True,
+                        [Food("NA", "Chicken Share Meal", 16.95, "NA"),
+                         Food("NA", "Tenders Share Meal", 16.95, "NA"),
+                         Food("NA", "Nuggets Share Meal", 16.95, "NA"),
+                         Food("NA", "Signature Grilled Chicken Meal", 10.95, "NA"),
+                         Food("NA", "Variety Feast", 39.95, "NA"),
+                         Food("NA", "Zinger Stacker Box", 11.55, "NA"),
+                         Food("NA", "BBQ Pockett Box", 9.95, "NA"),
+                         Food("NA", "Tenders Box", 8.95, "NA"),
+                         Food("NA", "Cheesy Zinger Stacker", 7.20, "NA"),
+                         Food("NA", "Original Recipe Rice Bucket", 5.50, "NA")
+                         ],
+                        3.1, 'A', (216, 151), "6762 6124", "Mon to Fri: 7.30am to 10pm - Sat & Sun: 11am to 8pm", -1,
+                        999, True, False
+                        ))
+
+canteensNTU.add(Canteen("Subway", "North Spine Plaza 76 Nanyang Drive N2.1-01-04 Singapore 637331", True, True,
+                        [Food("NA", "Chicken Bacon Ranch Sandwich", 6.95, "NA"),
+                         Food("NA", "Chicken Teriyaki Sandwich", 6.95, "NA"),
+                         Food("NA", "Cold Cut Trio Sandwich", 6.95, "NA"),
+                         Food("NA", "Egg Mayo Sandwich", 4.95, "NA"),
+                         Food("NA", "Italian B.M.T. Sandwich", 7.95, "NA"),
+                         Food("NA", "Veggie Delite Sandwich", 4.55, "NA"),
+                         Food("NA", "Veggie Patty Sandwich", 4.95, "NA"),
+                         Food("NA", "Egg & Cheese Flatbread", 3.95, "NA"),
+                         Food("NA", "Roasted Chicken Breast Sandwich", 5.20, "NA"),
+                         Food("NA", "Tuna Sandwich", 5.50, "NA")
+                         ],
+                        3.7, 'A', (212, 166), "6462 5238", "Mon to Fri: 8am to 9pm, Sat & Sun: 11am to 6pm", -1,
+                        999, True, False
+                        ))
+
+canteensNTU.add(Canteen("Foodgle Food Court", "38 Nanyang Crescent Blk 23, #051 - 058 Singapore 636866", True, True,
+                        [Food("Indian Cuisine", "Prata", 4.00, "450"),
+                         Food("Indian Cuisine", "Curry Chicken", 5.00, "520"),
+                         Food("Ayam Penyet", "Ayam Penyet Set", 4.8, "738"),
+                         Food("Ayam Penyet", "Ikan Dory Penyet Set", 4.5, "690"),
+                         Food("Ayam Penyet", "Udang Penyet Set", 5.00, "500"),
+                         Food("Ayam Penyet", "Fried Ayam Penyet Set", 5.30, "800"),
+                         Food("Chicken Rice", "Steamed Chicken Rice", 2.8, "475"),
+                         Food("Chicken Rice", "Roasted Chicken Rice", 3.8, "550"),
+                         Food("Korean Cuisine", "Ramyun", 4.9, "564"),
+                         Food("Korean Cuisine", "Korean Rice Cake", 3.8, "532"),
+                         ],
+                        3.0, 'B', (599, 69), "8296 3633", "Mon to Sun: 7am to 9pm", 9,
+                        440, True, True
+                        ))
+
 
 canteensNTU.add(Canteen("North Spine Food Court", "North Spine Plaza, 76 Nanyang Drive, NS2.1-02-03/01A, Singapore 637331", True, True,
                         [Food("Mini Wok", "Seafood Hokkien Mee", 4.0, "NA"),
