@@ -4,7 +4,7 @@ import user_interface
 from time import sleep
 import pygame
 import sort_distance
-import search_by_food
+import food
 import sort_by_rank
 import search_by_price
 
@@ -42,8 +42,9 @@ def main():
 
         if User_options == "a":
             database.canteensNTU.info()
-      #  elif User_options == "e":
-          #  database.
+        elif User_options == "e":
+            canList = food.search_by_food("Hamburger",database.canteensNTU)
+            print(canList)
 
         Continue = input("Please enter z to return to the options menu, otherwise press any key to exit: ")
         if Continue == "z":
