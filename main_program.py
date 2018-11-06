@@ -30,8 +30,11 @@ def main():
             if user_option == "a":
                 database.canteensNTU.info()
             elif user_option == "e":
-                canList = food.search_by_food("Hamburger", database.canteensNTU.retrieve_canteen())
-                print(canList)
+                #canList = food.search_by_food("Hamburger", database.canteensNTU.retrieve_canteen())
+                canList = database.canteensNTU.search_by_food("Hamburger")
+                # print(canList)
+                for i in canList:
+                    i.info()
 
             elif user_option == "b":
                 print("Nyan")
