@@ -162,6 +162,14 @@ class ListOfCanteens:
             canteen.menu()
             print()
 
+    def search_by_food(self, foodName):
+        result = []
+        for canteen in self.list:
+            for food in canteen.foodMenu:
+                if food.name == foodName:
+                    result.append(canteen)
+        return result
+
    # def retrieve_canteen_by_food_name(self):
        # for canteen in self-list:
 
