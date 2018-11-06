@@ -17,7 +17,7 @@ class Food:
             result = result + " from stall {}".format(self.stall)
         result = result + " costs ${}".format(self.price)
         if self.calorie != "NA":
-            result = result + " has {} kcal".format(self.calorie)
+            result = result + " and has {} kcal".format(self.calorie)
         return result
 
 
@@ -97,22 +97,34 @@ class ListOfCanteens:
                     result.append(canteen)
                     found = True
         if found:
-            print("Below are the canteen that has {} ".format(foodName))
-            return result
+            print("Below are the canteens that have {}:".format(foodName))
+            for canteen in result:
+                print(canteen.name)
         else:
-            print("No search result is found")
-            return None
+            print("No search result was found :(")
 
     # search for the canteens which has the food with prince within the given range
     # returns the list of tuples in format (canteen, foodList)
     def search_by_price(self, priceRange):
         result = []
+        found = False
         for canteen in self.list:
             list_foods = []
             for food in canteen.foodMenu:
                 if priceRange[0] <= food.price <= priceRange[1]:
                     list_foods.append(food)
+                    found = True
             result.append((canteen, list_foods))
+        if found:
+            print("Below are the canteens that have food with price between {} and {}:".format(priceRange[0], priceRange[1]))
+            for element in result:
+                if len(element[1]) > 0:
+                    print("Canteen {} has foods like: ".format(element[0].name))
+                    for food in element[1]:
+                        print(food.description())
+                    print()
+        else:
+            print("No search result was found :(")
         return result
 
     # this function sorts the canteens by using the current position of the user
@@ -130,7 +142,7 @@ class ListOfCanteens:
             print()
 
     # this function sorts the canteens by google rank
-    def sort_by_rank(self, current_position):
+    def sort_by_rank(self):
         list_canteens = []
         for canteen in self.list:
             # distance between user location and each canteen
