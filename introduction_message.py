@@ -8,7 +8,7 @@ def list_of_options():
                        "Option a: List of canteens at NTU",
                        "Option b: Display canteens sorted by rank",
                        "Option c: Display canteens sorted by distance from your position",
-                       "Option d: Search for a canteen with your preferred food",
+                       "Option d: Search for canteens selling your preferred food",
                        "Option e: Search for food within a selected price range"," ",
                        "Otherwise, press z to exit the application."]
     return message_options
