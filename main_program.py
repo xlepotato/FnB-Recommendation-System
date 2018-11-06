@@ -21,15 +21,15 @@ def main():
     #preference_vegetarian = input("Are you a vegetarian (Pls enter True or False): ")
     #print()
 
-
     while True:
         for interface2 in user_interface.userinterface2():
             print(interface2)
         print()
 
         User_options = input("Pls select your preferred option (eg. a,b,c etc.): ")
-        #     print()
-        while not User_options == "a" and User_options == "b" and User_options == "c" and User_options == "d" and User_options == "e" and User_options == "f" and User_options == "z":
+        print()
+
+        while not User_options == "a" and "b" and "c" and "d" and "e" and "f":
             print("Please select the option correctly.")
             User_options = input("Pls select your preferred option (eg. a,b,c etc.): ")
             print()
