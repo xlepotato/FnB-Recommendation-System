@@ -18,16 +18,25 @@ def MouseClick():
 
     return (mouseX, mouseY)
 
-def calc_distance(x2,y2):
+distance1 = []
+distance2 = []
+
+
+def sort_distance(x2,y2):
     ## getting distance based on the point indicated in the map
-    for i in len(database.canteensNTU.list):
+    for i in range(0,7):
         x1 = database.canteensNTU.list[i].coordinates[0]
         y1 = database.canteensNTU.list[i].coordinates[1]
         distance = sqrt(((x2-x1)**2) + ((y2-y1)**2))
-        distance2 = []
-        distance2.append(round(distance,0))
-        print(database.canteensNTU.list[i].info())
-    print(distance2)
+        distance1 = [int(distance), i]
+        ##distance between user location and each canteen
+        distance2.append(distance1)
+        distance3 = sorted(sorted(distance2, key=lambda x: x[1]), key=lambda x: x[0], reverse=False)
+    print("The canteen is sorted by distance below.")
+    print()
+    for i in distance3:
+        print(database.canteensNTU.list[i[1]].info())
+        print()
 
 def get_user_location():
     ## make necessary initializations for Width, Height
@@ -54,8 +63,7 @@ def get_user_location():
 
     # get outputs of Mouseclick event handler
     buttonX, buttonY = MouseClick()
-    print("Your current coordinates is:",(buttonX, buttonY))
-    calc_distance(buttonX,buttonY)
+    sort_distance(buttonX,buttonY)
 
 pygame.init()
 get_user_location()

@@ -15,13 +15,6 @@ def main():
     for interface1 in user_interface.userinterface1():
         print(interface1)
 
-    sleep(7)
-    print()
-
-    pygame.init()
-    get_user_location.get_user_location()
-    print()
-
     #preference_halal = input("Are you a Muslim (Pls enter True or False): ")
     #print()
     #preference_vegetarian = input("Are you a vegetarian (Pls enter True or False): ")
@@ -58,3 +51,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    print(" aaaaaaaaaaa")
