@@ -175,6 +175,7 @@ class ListOfCanteens:
             canteen.menu()
             print()
 
+    # returns the list of canteens
     def retrieve_canteen(self):
         print(self.list , " Print the canteen list ")
         canlist = []
