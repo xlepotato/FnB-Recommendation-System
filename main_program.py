@@ -4,7 +4,7 @@ import user_interface
 from time import sleep
 import pygame
 import sort_distance
-import search_by_food
+import food
 import sort_by_rank
 import search_by_price
 
@@ -35,15 +35,17 @@ def main():
         User_options = input("Pls select your preferred option (eg. a,b,c etc.): ")
         print()
 
-        while not User_options == "a" and "b" and "c" and "d" and "e" and "f":
+
+        while len(User_options) != 1 or (not 'a' <= User_options[0] <= 'e'):
             print("Please select the option correctly.")
             User_options = input("Pls select your preferred option (eg. a,b,c etc.): ")
             print()
 
         if User_options == "a":
             database.canteensNTU.info()
-      #  elif User_options == "e":
-          #  database.
+        elif User_options == "e":
+            canList = food.search_by_food("Hamburger",database.canteensNTU)
+            print(canList)
 
         Continue = input("Please enter z to return to the options menu, otherwise press any key to exit: ")
         if Continue == "z":
