@@ -51,11 +51,11 @@ class Canteen:
     #Getter Methods
     def get_name(self):
         return self.name
-    def address(self):
+    def get_address(self):
         return self.address
-    def isHalal(self):
+    def get_isHalal(self):
         return self.isHalal
-    def isVegetarian(self):
+    def get_isVegetarian(self):
         return self.isVegetarian
     def get_foodMenu(self):
         return self.foodMenu
@@ -78,6 +78,31 @@ class Canteen:
     def get_isOpenPH(self):
         return self.isOpenPH
 
+    def set_address(self, address):
+        self.stall = address
+
+    def set_name(self, name):
+        self.name = name
+
+    def set_isHalal(self, isHalal):
+        self.isHalal = isHalal
+
+    def set_isVegetarian(self, isVegetarian):
+        self.isVegetarian = isVegetarian
+        # def set_calorie(self, calorie):
+        #     self.calorie = calorie
+        #
+        # def set_stall(self, stall):
+        #     self.stall = stall
+        #
+        # def set_name(self, name):
+        #     self.name = name
+        #
+        # def set_price(self, price):
+        #     self.price = price
+        #
+        # def set_calorie(self, calorie):
+        #     self.calorie = calorie
 
 
     def menu(self):
