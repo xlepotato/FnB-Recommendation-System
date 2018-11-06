@@ -1,16 +1,15 @@
+
+
+# Separate class for the Food
 class Food:
-    #initialization when class is created
+    # initialization when the Food class is created
     def __init__(self, stall, name, price, calorie):
         self.stall = stall
         self.name = name
         self.price = price
         self.calorie = calorie
 
-    '''
-           Function: Getter Methods
-           Purpose: To retrieve a particular attributes from the Food class
-    '''
-    #return the string description of the food
+    # returns the string description of the Food
     def description(self):
         result = "Food {}".format(self.name)
         if self.stall != "NA":
@@ -20,6 +19,10 @@ class Food:
             result = result + " has {} kcal".format(self.calorie)
         return result
 
+    '''
+        Function: Getter Methods
+        Purpose: To retrieve a particular attributes from the Food class
+    '''
     def get_stall(self):
         return self.stall
 
@@ -33,9 +36,9 @@ class Food:
         return self.calorie
 
     '''
-          Function: Setter Methods
-          Purpose: To set a new value for a particular attributes in the Food class
-      '''
+        Function: Setter Methods
+        Purpose: To set a new value for a particular attributes in the Food class
+    '''
     def set_stall(self, stall):
         self.stall = stall
     def set_name(self, name):
@@ -46,7 +49,9 @@ class Food:
         self.calorie = calorie
 
 
+# Separate class for the Canteen
 class Canteen:
+    # initialization when the Canteen class is created
     def __init__(self, name, address, isHalal, isVegetarian, foodMenu, rank, hygieneID, coordinates,
                  handPhone, workingTime, numberOfStalls, capacity, isOpenWkd, isOpenPH):
         self.name = name
@@ -130,35 +135,39 @@ class Canteen:
     def set_isOpenPH(self, isOpenPH):
         self.isOpenPH = isOpenPH
 
-
+    # prints the menu description of the Canteen
     def menu(self):
         print("Canteen", self.name, "has foods like:")
         for food in self.foodMenu:
             print(food.description())
 
-
+    # prints the information of the Canteen
     def info(self):
         print("Name:", self.name)
         print("Address:", self.address)
-        print("Is Halal:", "Yes" if self.isHalal == True else "No")
-        print("Is Vegetarian:", "Yes" if self.isVegetarian == True else "No")
+        print("Is Halal:", "Yes" if self.isHalal is True else "No")
+        print("Is Vegetarian:", "Yes" if self.isVegetarian is True else "No")
         print("Rank on Google Maps:", self.rank)
         print("Hygiene rank:", self.hygieneID)
         print("Hand Phone:", self.handPhone)
         print("Working time:", self.workingTime)
         print("Number of stalls:", self.numberOfStalls if self.numberOfStalls > 0 else "NA")
         print("Seat Capacity:", self.capacity if self.capacity > 0 else "NA")
-        print("Open on weekends:", "Yes" if self.isOpenWkd == True else "No")
-        print("Open on public holidays:", "Yes" if self.isOpenPH == True else "No")
+        print("Open on weekends:", "Yes" if self.isOpenWkd is True else "No")
+        print("Open on public holidays:", "Yes" if self.isOpenPH is True else "No")
 
 
+# Separate class for the List of Canteens
 class ListOfCanteens:
+    # initialization when the List of Canteens class is created
     def __init__(self):
         self.list = []
 
+    # adding a new canteen to the list
     def add(self, newCanteen):
         self.list.append(newCanteen)
 
+    # prints all the information of canteens in the list
     def info(self):
         for canteen in self.list:
             canteen.info()
@@ -173,6 +182,8 @@ class ListOfCanteens:
             canlist.append(canteen)
         return canlist
 
+    # search for the canteens which has the foodName in the menu
+    # returns the list of canteens
     def search_by_food(self, foodName):
         result = []
         for canteen in self.list:
@@ -181,13 +192,22 @@ class ListOfCanteens:
                     result.append(canteen)
         return result
 
+    # search for the canteens which has the food with prince within the given range
+    # returns the list of tuples in format (canteen, foodList)
+    def search_by_price(self, priceRange):
+        result = []
+        for canteen in self.list:
+            list_foods = []
+            for food in canteen.foodMenu:
+                if priceRange[0] <= food.price <= priceRange[1]:
+                    list_foods.append(food)
+            result.append((canteen, list_foods))
+        return result
 
-
-
-
-
-
+# canteensNTU has all the data
 canteensNTU = ListOfCanteens()
+
+# separately adding information of each canteen to the database
 canteensNTU.add(Canteen("McDonald's", "North Spine Plaza 76 Nanyang Drive N2.1-01-08 Singapore 637331", True, True,
                         [Food("NA", "Big Mac", 4.2, "522"),
                          Food("NA", "McSpicy", 3.0, "522"),
@@ -202,7 +222,6 @@ canteensNTU.add(Canteen("McDonald's", "North Spine Plaza 76 Nanyang Drive N2.1-0
                         3.9, 'A', (220, 172), "6777 3777", "Mon to Sat: 7am to 12am, Sun & PH: 10am to 10pm", -1,
                         999, True, True
                         ))
-
 canteensNTU.add(Canteen("KFC", "North Spine Plaza 76 Nanyang Drive N2.1-01-04 Singapore 637331", True, True,
                         [Food("NA", "Chicken Share Meal", 16.95, "NA"),
                          Food("NA", "Tenders Share Meal", 16.95, "NA"),
@@ -218,7 +237,6 @@ canteensNTU.add(Canteen("KFC", "North Spine Plaza 76 Nanyang Drive N2.1-01-04 Si
                         3.1, 'A', (216, 151), "6762 6124", "Mon to Fri: 7.30am to 10pm - Sat & Sun: 11am to 8pm", -1,
                         999, True, False
                         ))
-
 canteensNTU.add(Canteen("Subway", "North Spine Plaza 76 Nanyang Drive N2.1-01-04 Singapore 637331", True, True,
                         [Food("NA", "Chicken Bacon Ranch Sandwich", 6.95, "NA"),
                          Food("NA", "Chicken Teriyaki Sandwich", 6.95, "NA"),
@@ -234,7 +252,6 @@ canteensNTU.add(Canteen("Subway", "North Spine Plaza 76 Nanyang Drive N2.1-01-04
                         3.7, 'A', (212, 166), "6462 5238", "Mon to Fri: 8am to 9pm, Sat & Sun: 11am to 6pm", -1,
                         999, True, False
                         ))
-
 canteensNTU.add(Canteen("Foodgle Food Court", "38 Nanyang Crescent Blk 23, #051 - 058 Singapore 636866", True, True,
                         [Food("Indian Cuisine", "Prata", 4.00, "450"),
                          Food("Indian Cuisine", "Curry Chicken", 5.00, "520"),
@@ -250,8 +267,6 @@ canteensNTU.add(Canteen("Foodgle Food Court", "38 Nanyang Crescent Blk 23, #051 
                         3.0, 'B', (599, 69), "8296 3633", "Mon to Sun: 7am to 9pm", 9,
                         440, True, True
                         ))
-
-
 canteensNTU.add(Canteen("North Spine Food Court", "North Spine Plaza, 76 Nanyang Drive, NS2.1-02-03/01A, Singapore 637331", True, True,
                         [Food("Mini Wok", "Seafood Hokkien Mee", 4.0, "NA"),
                          Food("Mini Wok", "Sambal Long Bean w/ Pork", 4.5, "NA"),
@@ -270,7 +285,6 @@ canteensNTU.add(Canteen("North Spine Food Court", "North Spine Plaza, 76 Nanyang
                         3.6, 'B', (212, 170), "6465 8588", "Mon to Fri: 7am to 9pm, Sat: 7am to 3pm", 9,
                         1838, True, False
                         ))
-
 canteensNTU.add(Canteen("Each A Cup", "North Spine Plaza, 50 Nanyang Avenue, NS3-01-21, Singapore 639798", True, True,
                         [Food("NA", "Ice Cream Black Tea", 3.2, "NA"),
                          Food("NA", "Green Tea Macchiato", 2.7, "NA"),
@@ -287,7 +301,6 @@ canteensNTU.add(Canteen("Each A Cup", "North Spine Plaza, 50 Nanyang Avenue, NS3
                         3.2, 'NA', (240, 184), "9182 9307", "Mon to Fri: 9am to 9pm, Sat & Sun: 9am to 6pm", -1,
                         -1, True, False
                         ))
-
 canteensNTU.add(Canteen("Food Court 1", "21 Nanyang Circle, Hall 1, Singapore 639778", False, False,
                         [Food("Economical Rice", "Steam Pork Rice", 3.5, "500"),
                          Food("Economical Rice", "Old Cucumber & Pork Ribs Soup", 2.3, "446"),
@@ -304,7 +317,6 @@ canteensNTU.add(Canteen("Food Court 1", "21 Nanyang Circle, Hall 1, Singapore 63
                         3.1, 'NA', (379, 358), "6334 3033", "Mon to Fri: 7am to 9pm, Sat & Sun: 7am to 9pm", 5,
                         310, True, True
                         ))
-
 canteensNTU.add(Canteen("Food Court 2", "35 Students Walk, Hall 2, Singapore 639548", True, True,
                         [Food("Japanese Western", "Plain Yakisoba", 4.0, "450"),
                          Food("Japanese Western", "Curry Omelette", 5.0, "520"),
