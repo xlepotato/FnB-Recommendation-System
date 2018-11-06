@@ -1,3 +1,5 @@
+from math import sqrt
+
 
 # Separate class for the Food
 class Food:
@@ -61,6 +63,11 @@ class Canteen:
         print("Open on public holidays:", "Yes" if self.isOpenPH is True else "No")
 
 
+# distance between two points
+def distance_a_b(a, b):
+    return sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2)
+
+
 # Separate class for the List of Canteens
 class ListOfCanteens:
     # initialization when the List of Canteens class is created
@@ -100,6 +107,20 @@ class ListOfCanteens:
                     list_foods.append(food)
             result.append((canteen, list_foods))
         return result
+
+    # this function sorts the canteens by using the current position of the user
+    def sort_distance(self, current_position):
+        list_canteens = []
+        for canteen in self.list:
+            # distance between user location and each canteen
+            list_canteens.append((distance_a_b(current_position, canteen.coordinates), canteen))
+
+        list_canteens = sorted(list_canteens, key=lambda x: x[0])
+        print("The canteens are sorted by distance from your position:")
+        for element in list_canteens:
+            print("Distance from your position to this canteen is", round(element[0], 2))
+            element[1].info()
+            print()
 
 
 # canteensNTU has all the data
