@@ -54,6 +54,6 @@ def get_user_location():
     print("Your current coordinates is:",(buttonX, buttonY))
     calc_distance(buttonX,buttonY)
 
-pygame.init()
-get_user_location()
+# pygame.init()
+# get_user_location()
 
