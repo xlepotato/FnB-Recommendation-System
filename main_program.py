@@ -14,6 +14,12 @@ def main():
     print()
     for interface1 in user_interface.userinterface1():
         print(interface1)
+
+    sleep(7)
+    print()
+
+    pygame.init()
+    get_user_location.get_user_location()
     print()
 
     #preference_halal = input("Are you a Muslim (Pls enter True or False): ")

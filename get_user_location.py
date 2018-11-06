@@ -20,11 +20,14 @@ def MouseClick():
 
 def calc_distance(x2,y2):
     ## getting distance based on the point indicated in the map
-    for i in range(0,5):
+    for i in len(database.canteensNTU.list):
         x1 = database.canteensNTU.list[i].coordinates[0]
         y1 = database.canteensNTU.list[i].coordinates[1]
         distance = sqrt(((x2-x1)**2) + ((y2-y1)**2))
-        print(round(distance,0))
+        distance2 = []
+        distance2.append(round(distance,0))
+        print(database.canteensNTU.list[i].info())
+    print(distance2)
 
 def get_user_location():
     ## make necessary initializations for Width, Height
