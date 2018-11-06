@@ -25,13 +25,11 @@ def main():
             if user_option == "a":
                 database.canteensNTU.info()
             elif user_option == "e":
-                # canList = food.search_by_food("Hamburger", database.canteensNTU.retrieve_canteen())
                 food_name = input("Enter the name of the food to search ")
-                print(food_name)
                 canList = database.canteensNTU.search_by_food(food_name)
-                # print(canList)
-                for i in canList:
-                    i.info()
+                if canList is not None:
+                    for i in canList:
+                        i.info()  #print all the canteen info of the result that matches the given food name
 
             elif user_option == "b":
                 print("Nyan")

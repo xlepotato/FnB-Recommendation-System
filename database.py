@@ -89,12 +89,19 @@ class ListOfCanteens:
     # search for the canteens which has the foodName in the menu
     # returns the list of canteens
     def search_by_food(self, foodName):
+        found = False
         result = []
         for canteen in self.list:
             for food in canteen.foodMenu:
                 if food.name == foodName:
                     result.append(canteen)
-        return result
+                    found = True
+        if found:
+            print("Below are the canteen that has {} ".format(foodName))
+            return result
+        else:
+            print("No search result is found")
+            return None
 
     # search for the canteens which has the food with prince within the given range
     # returns the list of tuples in format (canteen, foodList)
@@ -251,4 +258,22 @@ canteensNTU.add(Canteen("Food Court 2", "35 Students Walk, Hall 2, Singapore 639
                          Food("Shandong Big Bun", "Liang Ban Seaweed", 1.0, "181")],
                         4.2, 'B', (420, 286), "6334 3033", "Mon to Fri: 7am to 9pm, Sat & Sun: 7am to 9pm", 7,
                         446, True, True
+                        ))
+
+canteensNTU.add(Canteen("NIE Canteen", "1 Nanyang Walk, Singapore 637616", True, True,
+                        [Food("Muslim Food", "Nasi Lemak", 2.70, "450"),
+                         Food("Muslim Food", "Mee Rebus", 2.00, "520"),
+                         Food("Muslim Food", "Mee Siam", 4.8, "738"),
+                         Food("Chicken Rice", "Hainanese Chicken Rice", 2.5, "475"),
+                         Food("Chicken Rice", "Chicken Porridge", 2.5, "475"),
+                         Food("Ban Mian & Fish Soup", "Double Fish Soup with Rice", 4.2, "550"),
+                         Food("Snack and Soft Drinks", "Big Chicken Pau", 0.8, "119"),
+                         Food("Snack and Soft Drinks", "Char Siew Pau", 0.6, "102"),
+                         Food("Western Food", "Chicken Cutlet", 3.5, "532"),
+                         Food("Western Food", "Mexican Chicken Chop", 4.5, "528"),
+                         Food("Western Food", "Tempura Fish", 3.5, "489"),
+                         Food("Noodle", "Mushroom Minced Meat", 2.5, "500"),
+                         Food("Noodle", "Prawn Mee", 2.5, "455")],
+                        4.3, 'B', (189, 42), "6790 3888", "Mon to Fri: 7am to 9pm, Sat & Sun: 7am to 9pm", 14,
+                        1576, False, False
                         ))
