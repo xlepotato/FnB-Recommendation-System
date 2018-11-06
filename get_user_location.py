@@ -2,12 +2,13 @@ import pygame
 import database
 from math import sqrt
 
+
 # define event handler for mouse click.
 # this event handler will be fired (activated) when user clicks a mouse button anywhere in the display window
 def MouseClick():
     finish = False
     while finish == False:
-        ## pygame.event.get() retrieves all events made by user
+        # pygame.event.get() retrieves all events made by user
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 finish = True
@@ -18,32 +19,29 @@ def MouseClick():
 
     return (mouseX, mouseY)
 
-distance1 = []
-distance2 = []
+
+# distance between two points
+def distance_a_b(a, b):
+    return sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2)
 
 
-def sort_distance(x2,y2):
-    # getting distance based on the point indicated in the map
-
-    listCanteens = []
-
+# this function sorts the canteens by using the current position of the user
+def sort_distance(current_position):
+    list_canteens = []
     for canteen in database.canteensNTU.list:
-        x1 = canteen.coordinates[0]
-        y1 = canteen.coordinates[1]
         # distance between user location and each canteen
-        distance = sqrt(((x2-x1)**2) + ((y2-y1)**2))
-        listCanteens.append((distance, canteen))
+        list_canteens.append((distance_a_b(current_position, canteen.coordinates), canteen))
 
-    listCanteens = sorted(listCanteens, key = lambda x: x[0])
+    list_canteens = sorted(list_canteens, key=lambda x: x[0])
     print("The canteens are sorted by distance from your position:")
-    for element in listCanteens:
+    for element in list_canteens:
         print("Distance from your position to this canteen is", round(element[0], 2))
         element[1].info()
         print()
 
 
 def get_user_location():
-    ## make necessary initializations for Width, Height
+    # make necessary initializations for Width, Height
     W = 640
     H = 480
     font = pygame.font.SysFont("monospace", 20)
@@ -67,8 +65,4 @@ def get_user_location():
 
     # get outputs of Mouseclick event handler
     buttonX, buttonY = MouseClick()
-    sort_distance(buttonX,buttonY)
-
-#pygame.init()
-#get_user_location()
-
+    sort_distance((buttonX, buttonY))

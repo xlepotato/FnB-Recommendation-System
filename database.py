@@ -1,5 +1,4 @@
 
-
 # Separate class for the Food
 class Food:
     # initialization when the Food class is created
@@ -18,35 +17,6 @@ class Food:
         if self.calorie != "NA":
             result = result + " has {} kcal".format(self.calorie)
         return result
-
-    '''
-        Function: Getter Methods
-        Purpose: To retrieve a particular attributes from the Food class
-    '''
-    def get_stall(self):
-        return self.stall
-
-    def get_name(self):
-        return self.name
-
-    def get_price(self):
-        return self.price
-
-    def get_calorie(self):
-        return self.calorie
-
-    '''
-        Function: Setter Methods
-        Purpose: To set a new value for a particular attributes in the Food class
-    '''
-    def set_stall(self, stall):
-        self.stall = stall
-    def set_name(self, name):
-        self.name = name
-    def set_price(self,price):
-        self.price = price
-    def set_calorie(self, calorie):
-        self.calorie = calorie
 
 
 # Separate class for the Canteen
@@ -67,72 +37,6 @@ class Canteen:
         self.numberOfStalls = numberOfStalls
         self.capacity = capacity
         self.isOpenWkd = isOpenWkd
-        self.isOpenPH = isOpenPH
-
-    '''
-        Function: Getter Methods
-        Purpose: To retrieve a particular attributes from the Canteen class
-    '''
-    def get_name(self):
-        return self.name
-    def get_address(self):
-        return self.address
-    def get_isHalal(self):
-        return self.isHalal
-    def get_isVegetarian(self):
-        return self.isVegetarian
-    def get_foodMenu(self):
-        return self.foodMenu
-    def get_rank(self):
-        return self.rank
-    def get_hygieneID(self):
-        return self.hygieneID
-    def get_coordinates(self):
-        return self.coordinates
-    def get_handPhone(self):
-        return self.handPhone
-    def get_workingTime(self):
-        return self.workingTime
-    def get_numberOfStalls(self):
-        return self.numberOfStalls
-    def get_capacity(self):
-        return self.capacity
-    def get_isOpenWkd(self):
-        return self.isOpenWkd
-    def get_isOpenPH(self):
-        return self.isOpenPH
-
-    '''
-        Function: Setter Methods
-        Purpose: To set a new value for a particular attributes in the Canteen class
-    '''
-    def set_address(self, address):
-        self.stall = address
-    def set_name(self, name):
-        self.name = name
-    def set_isHalal(self, isHalal):
-        self.isHalal = isHalal
-    def set_isVegetarian(self, isVegetarian):
-        self.isVegetarian = isVegetarian
-    def set_foodMenu(self, foodMenu):
-        self.foodMenu = foodMenu
-    def set_rank(self, rank):
-        self.rank = rank
-    def set_hygieneID(self, hygieneID):
-        self.hygieneID = hygieneID
-    def set_coordinates(self, coordinates):
-        self.coordinates = coordinates
-    def set_handPhone(self, handPhone):
-        self.handPhone = handPhone
-    def set_workingTime(self, workingTime):
-        self.workingTime = workingTime
-    def set_numberOfStalls(self, price):
-        self.price = price
-    def set_capacity(self, capacity):
-        self.capacity = capacity
-    def set_isOpenWkd(self, isOpenWkd):
-        self.isOpenWkd = isOpenWkd
-    def set_isOpenPH(self, isOpenPH):
         self.isOpenPH = isOpenPH
 
     # prints the menu description of the Canteen
@@ -175,14 +79,6 @@ class ListOfCanteens:
             canteen.menu()
             print()
 
-    # returns the list of canteens
-    def retrieve_canteen(self):
-        print(self.list , " Print the canteen list ")
-        canlist = []
-        for canteen in self.list:
-            canlist.append(canteen)
-        return canlist
-
     # search for the canteens which has the foodName in the menu
     # returns the list of canteens
     def search_by_food(self, foodName):
@@ -204,6 +100,7 @@ class ListOfCanteens:
                     list_foods.append(food)
             result.append((canteen, list_foods))
         return result
+
 
 # canteensNTU has all the data
 canteensNTU = ListOfCanteens()
