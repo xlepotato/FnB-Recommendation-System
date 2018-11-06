@@ -1,6 +1,6 @@
 import get_user_location
 import database
-import User_interface
+import user_interface
 from time import sleep
 import pygame
 
@@ -8,7 +8,7 @@ import pygame
 
 def main():
     print()
-    for interface1 in User_interface.userinterface1():
+    for interface1 in user_interface.userinterface1():
         print(interface1)
 
     sleep(7)
@@ -24,7 +24,7 @@ def main():
     #print()
 
     while True:
-        for interface2 in User_interface.userinterface2():
+        for interface2 in user_interface.userinterface2():
             print(interface2)
         print()
 
