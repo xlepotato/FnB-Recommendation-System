@@ -222,34 +222,18 @@ def main():
 
         # Update food in the food menu of selected canteen
         elif user_option == "i":
-            # print every line of message in list_of_canteens on a new line
-            for line_in_canteen_list in list_of_canteens():
-                print(line_in_canteen_list)
-            canteen_id_str = input("Input the canteen_id that you want to update: ")
-            while True:
-                if canteen_id_str.isdigit():
-                    if 0 <= int(canteen_id_str) <= 11:
-                        canteen_id = int(canteen_id_str)
-                        break
-                    else:
-                        print("Please input an integer between 0 and 8 inclusive")
-                        print()
-                        canteen_id_str = input("Input the canteen_id that you want to update: ")
-                else:
-                    print("Please input a positive integer")
-                    print()
-                    canteen_id_str = input("Input the canteen_id that you want to update: ")
+            canteen_id = canteen_display(user_option)  # prompt user for the canteen id and display the list of canteen
+            food_number = 0
+            for food in database.canteensNTU.list[canteen_id].foodMenu:
+                print(food_number,": ",food.name)
+                food_number += 1
             print()
-            database.canteensNTU.list[canteen_id].menu()
-            print()
-            food_id = input("Input the food id that you want to update: ")
-
+            food_id = int(input("Input the food id that you want to update: "))
             new_price = float(input("Input a new price value for the food: "))
             new_calorie = input("Input a new calorie value for the food: ")
-            stall_name = database.canteensNTU.list[canteen_id].menu[food_id].stall()
-            food_name = database.canteensNTU.list[canteen_id].menu[food_id].name()
+            stall_name = database.canteensNTU.list[canteen_id].foodMenu[food_id].stall
+            food_name = database.canteensNTU.list[canteen_id].foodMenu[food_id].name
             new_food = database.Food(stall_name, food_name, new_price, new_calorie)
-            new_name = database.canteensNTU.list[canteen_id].menu[food_id].name
             database.canteensNTU.update_food(canteen_id, food_id, new_food)
 
 
@@ -257,21 +241,7 @@ def main():
         elif user_option == "j":
             for line_in_canteen_list in list_of_canteens():
                 print(line_in_canteen_list)
-            canteen_id_str = input("Input the canteen_id that you want to add new food to")
-
-            while True:
-                if canteen_id_str.isdigit():
-                    if 0 <= int(canteen_id_str) <= 11:
-                        canteen_id = int(canteen_id_str)
-                        break
-                    else:
-                        print("Please input an integer between 0 and 11 inclusive")
-                        print()
-                        canteen_id_str = input("Input the canteen_id that you want to display: ")
-                else:
-                    print("Please input a positive integer")
-                    print()
-                    canteen_id_str = input("Input the canteen_id that you want to display: ")
+            canteen_id = canteen_display(user_option)  # prompt user for the canteen id and display the list of canteen
             stall_name = input("Please enter the food stall name to add")
             food_name = input("Please enter the name of the food to add")
             #TODO: Exception handling for Float & Int
@@ -286,6 +256,7 @@ def main():
             break
 
         # user to press y to continue or any other key to exit
+        print()
         toContinue = input("Do you still want to continue? Enter 'Y' to continue, otherwise, enter any key to exit: ").capitalize()
         if toContinue == 'Y':
             continue

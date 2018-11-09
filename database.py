@@ -186,7 +186,7 @@ class ListOfCanteens:
 
     # update the food info for some canteen from the list
     def update_food(self, canteen_id, food_id, new_food):
-        self.list[canteen_id].menu[food_id] = new_food
+        self.list[canteen_id].foodMenu[food_id] = new_food
 
 
 # canteensNTU has all the data
