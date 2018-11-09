@@ -20,6 +20,13 @@ class Food:
             result = result + " and has {} kcal".format(self.calorie)
         return result
 
+    # updates the food information
+    def update(self, new_stall, new_name, new_price, new_calorie):
+        self.stall = new_stall
+        self.name = new_name
+        self.price = new_price
+        self.calorie = new_calorie
+
 
 # Separate class for the Canteen
 class Canteen:
@@ -61,6 +68,10 @@ class Canteen:
         print("Seat Capacity:", self.capacity if self.capacity > 0 else "NA")
         print("Open on weekends:", "Yes" if self.isOpenWkd is True else "No")
         print("Open on public holidays:", "Yes" if self.isOpenPH is True else "No")
+
+    # updates the rank of the canteen
+    def update_rank(self, new_rank):
+        self.rank = new_rank
 
 
 # distance between two points
@@ -154,6 +165,10 @@ class ListOfCanteens:
             print("The rank of this canteen is: ", element[0])
             element[1].info()
             print()
+
+    # update the rank of some canteen from the list
+    def update_rank(self, canteen_id, new_rank):
+        self.list[canteen_id].update_rank(new_rank)
 
 
 # canteensNTU has all the data
