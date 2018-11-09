@@ -174,6 +174,14 @@ class ListOfCanteens:
     def update_rank(self, canteen_id, new_rank):
         self.list[canteen_id].rank = new_rank
 
+    # add the new food for some canteen from the list
+    def add_food(self, canteen_id, new_food):
+        self.list[canteen_id].menu.append(new_food)
+
+    # update the food info for some canteen from the list
+    def update_food(self, canteen_id, food_id, new_food):
+        self.list[canteen_id].menu[food_id] = new_food
+
 
 # canteensNTU has all the data
 canteensNTU = ListOfCanteens()
