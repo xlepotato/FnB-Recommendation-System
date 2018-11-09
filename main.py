@@ -241,6 +241,34 @@ def main():
                     database.canteensNTU.update_rank(canteen_id, float(rank))
                     break
 
+        # Add new food to the specified canteen
+        elif user_option == "j":
+            for line_in_canteen_list in list_of_canteens():
+                print(line_in_canteen_list)
+            canteen_id_str = input("Input the canteen_id that you want to add new food to")
+
+            while True:
+                if canteen_id_str.isdigit():
+                    if 0 <= int(canteen_id_str) <= 11:
+                        canteen_id = int(canteen_id_str)
+                        break
+                    else:
+                        print("Please input an integer between 0 and 8 inclusive")
+                        print()
+                        canteen_id_str = input("Input the canteen_id that you want to display: ")
+                else:
+                    print("Please input a positive integer")
+                    print()
+                    canteen_id_str = input("Input the canteen_id that you want to display: ")
+            stall_name = input("Please enter the food stall name to add")
+            food_name = input("Please enter the name of the food to add")
+            #TODO: Exception handling for Float & Int
+            food_price = float(input("Please enter the price of the food"))
+            food_calorie = int(input("Please enter the calorie amount of the food"))
+            new_food = database.Food(stall_name, food_name, food_price, food_calorie)
+            database.canteensNTU.add_food(canteen_id,new_food)
+            print(database.canteensNTU.info())
+
         # Update food in the food menu of selected canteen
         elif user_option == "i":
             # print every line of message in list_of_canteens on a new line
