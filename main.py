@@ -73,13 +73,23 @@ def list_of_options():
                        "Option c: Display canteens sorted by rank",
                        "Option d: Display canteens sorted by distance from your position",
                        "Option e: Search for canteens selling your preferred food",
-                       "Option f: Search for food within a selected price range"," ",
-                       "Option g: Update rank of selected canteen"
+                       "Option f: Search for food within a selected price range",
+                       "Option g: Update rank of selected canteen"," ",
                        "Otherwise, press z to exit the application."]
     return message_options
 
 def list_of_canteens():
-    canteen_list = [""]
+    canteen_list = ["0: Each A Cup",
+                    "1: Food Court 1",
+                    "2: Food Court 2",
+                    "3: Foodgle Food Court",
+                    "4: KFC",
+                    "5: McDonald's",
+                    "6: NIE Canteen",
+                    "7: North Spine Food Court",
+                    "8: Subway"," "]
+    return canteen_list
+
 
 # ------------------------------------------------------------------
 
@@ -112,7 +122,7 @@ def main():
             database.canteensNTU.info()
 
         elif user_option == "b":
-            database.canteensNTU.update_rank(canteen_id, rank)
+            pass
 
         # Display canteens sorted by rank
         elif user_option == "c":
@@ -146,6 +156,32 @@ def main():
                 database.canteensNTU.search_by_price((float(input1), float(input2)))
 
         elif user_option == "g":
+            # print every line of message in list_of_canteens on a new line
+            for line_in_canteen_list in list_of_canteens():
+                print(line_in_canteen_list)
+            canteen_id_str = input("Input the canteen_id that you want to update: ")
+            while True:
+                if canteen_id_str.isdigit():
+                    if int(canteen_id_str) >= 0 and int(canteen_id_str) <= 8:
+                        canteen_id = int(canteen_id_str)
+                        break
+                    else:
+                        print("Please input an integer between 0 and 8 inclusive")
+                        canteen_id_str = input("Input the canteen_id that you want to update: ")
+                else:
+                    print("Please input a positive integer")
+                    canteen_id_str = input("Input the canteen_id that you want to update: ")
+            rank = input("Input the new rank for the canteen from 0.0 to 5.0: ")
+            try:
+                float(rank)
+                if float(rank) < 0 or float(rank) > 5.0:
+                    raise Exception("Please enter a value between 0 and 5 inclusive")
+            except ValueError:
+                print("Wrong input format!")
+            except Exception as error:
+                print(error)
+            else:
+                database.canteensNTU.update_rank(canteen_id,rank)
 
 
         # user to press z to exit the application

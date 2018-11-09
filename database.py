@@ -309,7 +309,9 @@ canteensNTU.add(Canteen("North Spine Food Court", "North Spine Plaza, 76 Nanyang
                          Food("Indian Cuisine", "Curry Chicken Biryani", 4.5, "NA")],
                         3.6, 'B', (212, 170), "6465 8588", "Mon to Fri: 7am to 9pm, Sat: 7am to 3pm", 9,
                         1838, True, False
-                        ))canteensNTU.add(Canteen("Subway", "North Spine Plaza 76 Nanyang Drive N2.1-01-04 Singapore 637331", True, True,
+                        ))
+
+canteensNTU.add(Canteen("Subway", "North Spine Plaza 76 Nanyang Drive N2.1-01-04 Singapore 637331", True, True,
                         [Food("NA", "Chicken Bacon Ranch Sandwich", 6.95, "NA"),
                          Food("NA", "Chicken Teriyaki Sandwich", 6.95, "NA"),
                          Food("NA", "Cold Cut Trio Sandwich", 6.95, "NA"),
