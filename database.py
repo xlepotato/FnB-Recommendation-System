@@ -229,21 +229,21 @@ canteensNTU.add(Canteen("Food Court 2", "35 Students Walk, Hall 2, Singapore 639
                         446, True, True
                         ))
 
-canteensNTU.add(Canteen("Food Court 16", "60 Nanyang Drive SBS-B1N-10 Singapore 637551", True, True,
-                        [Food("Japanese Cuisine", "Kaki Fuyong Oyster", 3.8, "450"),
-                         Food("Japanese Cuisine", "Curry Don", 3.3, "520"),
-                         Food("Muslim Food", "Nasi Lemak", 3.8, "465"),
-                         Food("Muslim Food", "Mee Rebus", 3.5, "432"),
-                         Food("Dim Sum", "Red Bean Bun", 0.6, "550"),
+canteensNTU.add(Canteen("Food Court 16", "50 Nanyang Walk Singapore 639929", True, True,
+                        [Food("Japanese Cuisine", "Kaki Fuyong Oyster", 4.8, "450"),
+                         Food("Japanese Cuisine", "Curry Don", 3.9, "520"),
+                         Food("Muslim Food", "Nasi Lemak", 2.9, "465"),
+                         Food("Muslim Food", "Mee Siam", 2.5, "432"),
+                         Food("Dim Sum", "Red Bean Bun", 0.6, "147"),
                          Food("Dim Sum", "Soon Kueh", 0.5, "119"),
-                         Food("Ban Mian & Fish Soup", "Seafood Ban Mian", 4.0, "528"),
-                         Food("Ban Mian & Fish Soup", "Fried Fish Soup", 4.5, "489"),
+                         Food("Ban Mian & Fish Soup", "Seafood Ban Mian", 4.5, "528"),
+                         Food("Ban Mian & Fish Soup", "Fried Fish Soup", 5.0, "489"),
                          Food("Chicken Rice", "Hainanese Chicken Rice", 3.5, "492"),
-                         Food("Chicken Rice", "Chicken Porridge", 3.2, "489"),
-                         Food("Noodle", "Mushroom Minced Meat", 3.6, "500"),
-                         Food("Noodle", "Prawn Mee", 4.0, "455")],
-                        3.9, 'B', (125, 269), "9638 0392", "Mon to Fri: 7am to 9pm, Sat: 7am to 3pm", 8,
-                        500, True, False
+                         Food("Chicken Rice", "Chicken Porridge", 2.2, "489"),
+                         Food("Noodle", "Mushroom Minced Meat", 3.0, "500"),
+                         Food("Noodle", "Prawn Mee", 3.5, "455")],
+                        3.9, 'B', (321, 97), "9450 5893", "Mon to Fri: 7am to 9pm, Sat: 7am to 9pm", 5,
+                        304, True, False
                         ))
 
 canteensNTU.add(Canteen("Foodgle Food Court", "38 Nanyang Crescent Blk 23, #051 - 058 Singapore 636866", True, True,
