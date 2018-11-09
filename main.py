@@ -98,6 +98,35 @@ def list_of_canteens():
                     "11: Quad Cafe"," "]
     return canteen_list
 
+'''
+Function Name: canteen_display()
+Function Parameter: None
+Function Return: canteen_id
+Purpose: Display the list of canteen available and prompts user for canteen_id with validation check
+'''
+def canteen_display(user_option):
+    # print every line of message in list_of_canteens on a new line
+    for line_in_canteen_list in list_of_canteens():
+        print(line_in_canteen_list)
+    # Ensure that user will always input valid value
+    while True:
+        if user_option == 'h' or user_option == 'i':
+            canteen_id_str = input("Input the canteen_id that you want to update: ")
+        else:
+            canteen_id_str = input("Input the canteen_id that you want to display: ")
+        print()
+        if canteen_id_str.isdigit():
+            if 0 <= int(canteen_id_str) <= 11:
+                canteen_id = int(canteen_id_str)
+                break
+            else:
+                print("Please input an integer between 0 and 11 inclusive")
+                print()
+        else:
+            print("Please input a positive integer")
+            print()
+    return canteen_id
+
 
 # ------------------------------------------------------------------
 
@@ -131,48 +160,12 @@ def main():
 
         # Display information on a selected canteen
         elif user_option == "b":
-            # print every line of message in list_of_canteens on a new line
-            for line_in_canteen_list in list_of_canteens():
-                print(line_in_canteen_list)
-            canteen_id_str = input("Input the canteen_id that you want to display: ")
-            print()
-            # Ensure that user will always input valid value
-            while True:
-                if canteen_id_str.isdigit():
-                    if 0 <= int(canteen_id_str) <= 11:
-                        canteen_id = int(canteen_id_str)
-                        break
-                    else:
-                        print("Please input an integer between 0 and 8 inclusive")
-                        print()
-                        canteen_id_str = input("Input the canteen_id that you want to display: ")
-                else:
-                    print("Please input a positive integer")
-                    print()
-                    canteen_id_str = input("Input the canteen_id that you want to display: ")
+            canteen_id = canteen_display(user_option) #prompt user for the canteen id and display the list of canteen
             database.canteensNTU.list[canteen_id].info()
 
         # Display food menu of a selected canteen
         elif user_option == "c":
-            # print every line of message in list_of_canteens on a new line
-            for line_in_canteen_list in list_of_canteens():
-                print(line_in_canteen_list)
-            canteen_id_str = input("Input the canteen_id that you want to display: ")
-            print()
-            # Ensure that user will always input valid value
-            while True:
-                if canteen_id_str.isdigit():
-                    if 0 <= int(canteen_id_str) <= 11:
-                        canteen_id = int(canteen_id_str)
-                        break
-                    else:
-                        print("Please input an integer between 0 and 8 inclusive")
-                        print()
-                        canteen_id_str = input("Input the canteen_id that you want to display: ")
-                else:
-                    print("Please input a positive integer")
-                    print()
-                    canteen_id_str = input("Input the canteen_id that you want to display: ")
+            canteen_id = canteen_display(user_option)  #prompt user for the canteen id and display the list of canteen
             database.canteensNTU.list[canteen_id].menu()
 
         # Display canteens sorted by rank
@@ -212,21 +205,7 @@ def main():
 
         # Update rank of selected canteen
         elif user_option == "h":
-            # print every line of message in list_of_canteens on a new line
-            for line_in_canteen_list in list_of_canteens():
-                print(line_in_canteen_list)
-            canteen_id_str = input("Input the canteen_id that you want to update: ")
-            while True:
-                if canteen_id_str.isdigit():
-                    if 0 <= int(canteen_id_str) <= 11:
-                        canteen_id = int(canteen_id_str)
-                        break
-                    else:
-                        print("Please input an integer between 0 and 8 inclusive")
-                        canteen_id_str = input("Input the canteen_id that you want to update: ")
-                else:
-                    print("Please input a positive integer")
-                    canteen_id_str = input("Input the canteen_id that you want to update: ")
+            canteen_id = canteen_display(user_option)  # prompt user for the canteen id and display the list of canteen
             while True:
                 rank = input("Input the new rank for the canteen from 0.0 to 5.0: ")
                 try:
@@ -286,7 +265,7 @@ def main():
                         canteen_id = int(canteen_id_str)
                         break
                     else:
-                        print("Please input an integer between 0 and 8 inclusive")
+                        print("Please input an integer between 0 and 11 inclusive")
                         print()
                         canteen_id_str = input("Input the canteen_id that you want to display: ")
                 else:
