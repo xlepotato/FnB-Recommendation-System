@@ -258,6 +258,7 @@ def main():
                     canteen_id_str = input("Input the canteen_id that you want to display: ")
             stall_name = input("Please enter the food stall name to add")
             food_name = input("Please enter the name of the food to add")
+            #TODO: Exception handling for Float & Int
             food_price = float(input("Please enter the price of the food"))
             food_calorie = int(input("Please enter the calorie amount of the food"))
             new_food = database.Food(stall_name, food_name, food_price, food_calorie)
