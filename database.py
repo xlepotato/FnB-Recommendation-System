@@ -229,6 +229,23 @@ canteensNTU.add(Canteen("Food Court 2", "35 Students Walk, Hall 2, Singapore 639
                         446, True, True
                         ))
 
+canteensNTU.add(Canteen("Food Court 16", "60 Nanyang Drive SBS-B1N-10 Singapore 637551", True, True,
+                        [Food("Japanese Cuisine", "Kaki Fuyong Oyster", 3.8, "450"),
+                         Food("Japanese Cuisine", "Curry Don", 3.3, "520"),
+                         Food("Muslim Food", "Nasi Lemak", 3.8, "465"),
+                         Food("Muslim Food", "Mee Rebus", 3.5, "432"),
+                         Food("Dim Sum", "Red Bean Bun", 0.6, "550"),
+                         Food("Dim Sum", "Soon Kueh", 0.5, "119"),
+                         Food("Ban Mian & Fish Soup", "Seafood Ban Mian", 4.0, "528"),
+                         Food("Ban Mian & Fish Soup", "Fried Fish Soup", 4.5, "489"),
+                         Food("Chicken Rice", "Hainanese Chicken Rice", 3.5, "492"),
+                         Food("Chicken Rice", "Chicken Porridge", 3.2, "489"),
+                         Food("Noodle", "Mushroom Minced Meat", 3.6, "500"),
+                         Food("Noodle", "Prawn Mee", 4.0, "455")],
+                        3.9, 'B', (125, 269), "9638 0392", "Mon to Fri: 7am to 9pm, Sat: 7am to 3pm", 8,
+                        500, True, False
+                        ))
+
 canteensNTU.add(Canteen("Foodgle Food Court", "38 Nanyang Crescent Blk 23, #051 - 058 Singapore 636866", True, True,
                         [Food("Indian Cuisine", "Prata", 4.00, "450"),
                          Food("Indian Cuisine", "Curry Chicken", 5.00, "520"),
@@ -259,6 +276,26 @@ canteensNTU.add(Canteen("KFC", "North Spine Plaza 76 Nanyang Drive N2.1-01-04 Si
                          ],
                         3.1, 'A', (216, 151), "6762 6124", "Mon to Fri: 7.30am to 10pm - Sat & Sun: 11am to 8pm", -1,
                         999, True, False
+                        ))
+
+canteensNTU.add(Canteen("Koufu @ the South Spine", "50 Nanyang Avenue SS3-B4 Singapore 639798", True, True,
+                        [Food("Japanese Cuisine", "Kaki Fuyong Oyster", 2.70, "450"),
+                         Food("Japanese Cuisine", "Curry Don", 3.50, "520"),
+                         Food("Japanese Cuisine", "Tempura Bento Set", 5.5, "738"),
+                         Food("Muslim Food", "Nasi Lemak", 3.2, "465"),
+                         Food("Muslim Food", "Mee Rebus", 3.0, "432"),
+                         Food("Dim Sum", "Wholemeal Red Bean Bun", 0.7, "550"),
+                         Food("Dim Sum", "Soon Kueh", 0.6, "119"),
+                         Food("Pasta Express", "Carbonara", 3.8, "5322"),
+                         Food("Pasta Express", "Tomato Pasta", 3.8, "522"),
+                         Food("Ban Mian & Fish Soup", "Seafood Ban Mian", 3.5, "528"),
+                         Food("Ban Mian & Fish Soup", "Fried Fish Soup", 3.5, "489"),
+                         Food("Chicken Rice", "Hainanese Chicken Rice", 3.0, "489"),
+                         Food("Chicken Rice", "Chicken Porridge", 3.0, "489"),
+                         Food("Noodle", "Mushroom Minced Meat", 3.5, "500"),
+                         Food("Noodle", "Prawn Mee", 3.8, "455")],
+                        3.6, 'B', (133, 375), "6790 0355", "Mon to Fri: 7am to 9pm, Sat: 7am to 3pm", 15,
+                        1050, True, False
                         ))
 
 canteensNTU.add(Canteen("McDonald's", "North Spine Plaza 76 Nanyang Drive N2.1-01-08 Singapore 637331", True, True,
@@ -329,48 +366,7 @@ canteensNTU.add(Canteen("Subway", "North Spine Plaza 76 Nanyang Drive N2.1-01-04
                         999, True, False
                         ))
 
-
-canteensNTU.add(Canteen("Koufu @ the South Spine", "50 Nanyang Avenue SS3-B4 Singapore 639798", True, True,
-                        [Food("Japanese Cuisine", "Kaki Fuyong Oyster", 2.70, "450"),
-                         Food("Japanese Cuisine", "Curry Don", 3.50, "520"),
-                         Food("Japanese Cuisine", "Tempura Bento Set", 5.5, "738"),
-                         Food("Muslim Food", "Nasi Lemak", 3.2, "465"),
-                         Food("Muslim Food", "Mee Rebus", 3.0, "432"),
-                         Food("Dim Sum", "Wholemeal Red Bean Bun", 0.7, "550"),
-                         Food("Dim Sum", "Soon Kueh", 0.6, "119"),
-                         Food("Pasta Express", "Carbonara", 3.8, "5322"),
-                         Food("Pasta Express", "Tomato Pasta", 3.8, "522"),
-                         Food("Ban Mian & Fish Soup", "Seafood Ban Mian", 3.5, "528"),
-                         Food("Ban Mian & Fish Soup", "Fried Fish Soup", 3.5, "489"),
-                         Food("Chicken Rice", "Hainanese Chicken Rice", 3.0, "489"),
-                         Food("Chicken Rice", "Chicken Porridge", 3.0, "489"),
-                         Food("Noodle", "Mushroom Minced Meat", 3.5, "500"),
-                         Food("Noodle", "Prawn Mee", 3.8, "455")],
-                        3.6, 'B', (133, 375), "6790 0355", "Mon to Fri: 7am to 9pm, Sat: 7am to 3pm", 15,
-                        1050, True, False
-                        ))
-
-
 canteensNTU.add(Canteen("Quad Cafe", "60 Nanyang Drive SBS-B1N-10 Singapore 637551", True, True,
-                        [Food("Japanese Cuisine", "Kaki Fuyong Oyster", 3.8, "450"),
-                         Food("Japanese Cuisine", "Curry Don", 3.3, "520"),
-                         Food("Muslim Food", "Nasi Lemak", 3.8, "465"),
-                         Food("Muslim Food", "Mee Rebus", 3.5, "432"),
-                         Food("Dim Sum", "Red Bean Bun", 0.6, "550"),
-                         Food("Dim Sum", "Soon Kueh", 0.5, "119"),
-                         Food("Ban Mian & Fish Soup", "Seafood Ban Mian", 4.0, "528"),
-                         Food("Ban Mian & Fish Soup", "Fried Fish Soup", 4.5, "489"),
-                         Food("Chicken Rice", "Hainanese Chicken Rice", 3.5, "492"),
-                         Food("Chicken Rice", "Chicken Porridge", 3.2, "489"),
-                         Food("Noodle", "Mushroom Minced Meat", 3.6, "500"),
-                         Food("Noodle", "Prawn Mee", 4.0, "455")],
-                        3.9, 'B', (125, 269), "9638 0392", "Mon to Fri: 7am to 9pm, Sat: 7am to 3pm", 8,
-                        500, True, False
-                        ))
-
-
-
-canteensNTU.add(Canteen("Food Court 16", "60 Nanyang Drive SBS-B1N-10 Singapore 637551", True, True,
                         [Food("Japanese Cuisine", "Kaki Fuyong Oyster", 3.8, "450"),
                          Food("Japanese Cuisine", "Curry Don", 3.3, "520"),
                          Food("Muslim Food", "Nasi Lemak", 3.8, "465"),

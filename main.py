@@ -82,12 +82,15 @@ def list_of_canteens():
     canteen_list = ["0: Each A Cup",
                     "1: Food Court 1",
                     "2: Food Court 2",
-                    "3: Foodgle Food Court",
-                    "4: KFC",
-                    "5: McDonald's",
-                    "6: NIE Canteen",
-                    "7: North Spine Food Court",
-                    "8: Subway"," "]
+                    "3: Food Court 16",
+                    "4: Foodgle Food Court",
+                    "5: KFC",
+                    "6: Koufu @ the South Spine",
+                    "7: McDonald's",
+                    "8: NIE Canteen",
+                    "9: North Spine Food Court",
+                    "10: Subway",
+                    "11: Quad Cafe"," "]
     return canteen_list
 
 
@@ -162,7 +165,7 @@ def main():
             canteen_id_str = input("Input the canteen_id that you want to update: ")
             while True:
                 if canteen_id_str.isdigit():
-                    if int(canteen_id_str) >= 0 and int(canteen_id_str) <= 8:
+                    if int(canteen_id_str) >= 0 and int(canteen_id_str) <= 11:
                         canteen_id = int(canteen_id_str)
                         break
                     else:
