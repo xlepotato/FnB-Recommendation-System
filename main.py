@@ -8,6 +8,7 @@ import pygame
 # define event handler for mouse click.
 # this event handler will be fired (activated) when user clicks a mouse button anywhere in the display window
 def MouseClick():
+    mouseX,mouseY = (0,0)
     finish = False
     while finish == False:
         # pygame.event.get() retrieves all events made by user
@@ -18,7 +19,8 @@ def MouseClick():
                 (mouseX, mouseY) = pygame.mouse.get_pos()
                 finish = True
                 pygame.display.quit()
-
+    if (mouseX,mouseY) == (0,0):
+        pygame.display.quit()
     return (mouseX, mouseY)
 
 
@@ -75,7 +77,9 @@ def list_of_options():
                        "Option e: Display canteens sorted by distance from your position",
                        "Option f: Search for canteens selling your preferred food",
                        "Option g: Search for food within a selected price range",
-                       "Option h: Update rank of selected canteen"," ",
+                       "Option h: Update rank of selected canteen",
+                       "Option i: Update food menu of selected canteen",
+                       "Option j: Add new food in the food menu of a selected canteen"," ",
                        "Otherwise, press z to exit the application."]
     return message_options
 
@@ -272,6 +276,26 @@ def main():
             new_food = database.Food(stall_name, food_name, food_price, food_calorie)
             database.canteensNTU.add_food(canteen_id,new_food)
             print(database.canteensNTU.info())
+
+        # Update food in the food menu of selected canteen
+        elif user_option == "i":
+            # print every line of message in list_of_canteens on a new line
+            for line_in_canteen_list in list_of_canteens():
+                print(line_in_canteen_list)
+            canteen_id_str = input("Input the canteen_id that you want to update: ")
+            while True:
+                if canteen_id_str.isdigit():
+                    if 0 <= int(canteen_id_str) <= 11:
+                        canteen_id = int(canteen_id_str)
+                        break
+                    else:
+                        print("Please input an integer between 0 and 8 inclusive")
+                        canteen_id_str = input("Input the canteen_id that you want to update: ")
+                else:
+                    print("Please input a positive integer")
+                    canteen_id_str = input("Input the canteen_id that you want to update: ")
+            database.canteensNTU.list[canteen_id].menu()
+            food_id = input("Input the food id that you want to update: ")
 
         # user to press z to exit the application
         elif user_option == "z":

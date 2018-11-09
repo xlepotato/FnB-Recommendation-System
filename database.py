@@ -148,16 +148,19 @@ class ListOfCanteens:
     # this function sorts the canteens by using the current position of the user
     def sort_by_distance(self, current_position):
         list_canteens = []
-        for canteen in self.list:
-            # distance between user location and each canteen
-            list_canteens.append((distance_a_b(current_position, canteen.coordinates), canteen))
+        if current_position == (0,0):
+            pass
+        else:
+            for canteen in self.list:
+                # distance between user location and each canteen
+                list_canteens.append((distance_a_b(current_position, canteen.coordinates), canteen))
 
-        list_canteens = sorted(list_canteens, key=lambda x: x[0])
-        print("The canteens are sorted by distance from your position:")
-        for element in list_canteens:
-            print("Distance from your position to this canteen is", round(element[0], 2))
-            element[1].info()
-            print()
+            list_canteens = sorted(list_canteens, key=lambda x: x[0])
+            print("The canteens are sorted by distance from your position:")
+            for element in list_canteens:
+                print("Distance from your position to this canteen is", round(element[0], 2))
+                element[1].info()
+                print()
 
     # this function sorts the canteens by google rank
     def sort_by_rank(self):
