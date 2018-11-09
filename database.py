@@ -58,6 +58,7 @@ class Canteen:
         for food in self.foodMenu:
             print(food.description())
 
+    # add new food to the existing food menu
     def add_food_to_menu(self, new_food):
         self.foodMenu.append(new_food)
 

@@ -273,7 +273,7 @@ def main():
             food_calorie = int(input("Please enter the calorie amount of the food"))
             new_food = database.Food(stall_name, food_name, food_price, food_calorie)
             database.canteensNTU.add_food(canteen_id,new_food)
-            print(database.canteensNTU.info())
+            print(database.canteensNTU.info()) #to be deleted, for testing purposes
 
         # user to press z to exit the application
         elif user_option == "z":
