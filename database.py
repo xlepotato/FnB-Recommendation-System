@@ -58,8 +58,13 @@ class Canteen:
         for food in self.foodMenu:
             print(food.description())
 
+    # add new food to the existing food menu
     def add_food_to_menu(self, new_food):
         self.foodMenu.append(new_food)
+
+    # Get any one of the attribute in the Food Menu
+    def get_canteen_attribute(self):
+        return self.foodMenu
 
     # prints the information of the Canteen
     def info(self):
@@ -186,7 +191,8 @@ class ListOfCanteens:
 
     # update the food info for some canteen from the list
     def update_food(self, canteen_id, food_id, new_food):
-        self.list[canteen_id].menu[food_id] = new_food
+        self.list[canteen_id].get_canteen_attribute("foodMenu")
+        #[food_id] = new_food
 
 
 # canteensNTU has all the data

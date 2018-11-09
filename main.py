@@ -242,15 +242,23 @@ def main():
             print()
             database.canteensNTU.list[canteen_id].menu()
             print()
-            food_id = input("Input the food id that you want to update: ")
+            # food_id = input("Input the food id that you want to update: ")
 
+            food_name = input("Input the food id that you want to update: ")
             new_price = float(input("Input a new price value for the food: "))
             new_calorie = input("Input a new calorie value for the food: ")
-            stall_name = database.canteensNTU.list[canteen_id].menu[food_id].stall()
-            food_name = database.canteensNTU.list[canteen_id].menu[food_id].name()
-            new_food = database.Food(stall_name, food_name, new_price, new_calorie)
-            new_name = database.canteensNTU.list[canteen_id].menu[food_id].name
-            database.canteensNTU.update_food(canteen_id, food_id, new_food)
+
+            for i in database.canteensNTU.list[canteen_id].get_canteen_attribute():
+                if i.name == food_name:
+                    i.price = new_price
+                    i.calorie = new_calorie
+            print(database.canteensNTU.info())
+
+            # stall_name = database.canteensNTU.list[canteen_id].menu[food_id].stall()
+            # food_name = database.canteensNTU.list[canteen_id].menu[food_id].name()
+            # new_food = database.Food(stall_name, food_name, new_price, new_calorie)
+            # new_name = database.canteensNTU.list[canteen_id].menu[food_id].name
+            # database.canteensNTU.update_food(canteen_id, food_id, new_food)
 
 
         # Add new food to the specified canteen
@@ -279,7 +287,7 @@ def main():
             food_calorie = int(input("Please enter the calorie amount of the food"))
             new_food = database.Food(stall_name, food_name, food_price, food_calorie)
             database.canteensNTU.add_food(canteen_id,new_food)
-            print(database.canteensNTU.info())
+            print(database.canteensNTU.info()) #to be deleted, for testing purposes
 
         # user to press z to exit the application
         elif user_option == "z":
