@@ -69,12 +69,13 @@ def welcome_message():
 def list_of_options():
     message_options = ["Below are the list of options you can choose from:"," ",
                        "Option a: Display all information of canteens at NTU",
-                       "Option b: Display information on a canteen by name"
-                       "Option c: Display canteens sorted by rank",
-                       "Option d: Display canteens sorted by distance from your position",
-                       "Option e: Search for canteens selling your preferred food",
-                       "Option f: Search for food within a selected price range",
-                       "Option g: Update rank of selected canteen"," ",
+                       "Option b: Display information including food menu of a canteen by name",
+                       "Option c: Display food menu of a canteen by name",
+                       "Option d: Display canteens sorted by rank",
+                       "Option e: Display canteens sorted by distance from your position",
+                       "Option f: Search for canteens selling your preferred food",
+                       "Option g: Search for food within a selected price range",
+                       "Option h: Update rank of selected canteen"," ",
                        "Otherwise, press z to exit the application."]
     return message_options
 
@@ -124,25 +125,68 @@ def main():
         if user_option == "a":
             database.canteensNTU.info()
 
+        # Display information on a selected canteen
         elif user_option == "b":
-            pass
+            # print every line of message in list_of_canteens on a new line
+            for line_in_canteen_list in list_of_canteens():
+                print(line_in_canteen_list)
+            canteen_id_str = input("Input the canteen_id that you want to display: ")
+            print()
+            # Ensure that user will always input valid value
+            while True:
+                if canteen_id_str.isdigit():
+                    if 0 <= int(canteen_id_str) <= 11:
+                        canteen_id = int(canteen_id_str)
+                        break
+                    else:
+                        print("Please input an integer between 0 and 8 inclusive")
+                        print()
+                        canteen_id_str = input("Input the canteen_id that you want to display: ")
+                else:
+                    print("Please input a positive integer")
+                    print()
+                    canteen_id_str = input("Input the canteen_id that you want to display: ")
+            database.canteensNTU.list[canteen_id].info()
+
+        # Display food menu of a selected canteen
+        elif user_option == "c":
+            # print every line of message in list_of_canteens on a new line
+            for line_in_canteen_list in list_of_canteens():
+                print(line_in_canteen_list)
+            canteen_id_str = input("Input the canteen_id that you want to display: ")
+            print()
+            # Ensure that user will always input valid value
+            while True:
+                if canteen_id_str.isdigit():
+                    if 0 <= int(canteen_id_str) <= 11:
+                        canteen_id = int(canteen_id_str)
+                        break
+                    else:
+                        print("Please input an integer between 0 and 8 inclusive")
+                        print()
+                        canteen_id_str = input("Input the canteen_id that you want to display: ")
+                else:
+                    print("Please input a positive integer")
+                    print()
+                    canteen_id_str = input("Input the canteen_id that you want to display: ")
+            database.canteensNTU.list[canteen_id].menu()
 
         # Display canteens sorted by rank
-        elif user_option == "c":
+        elif user_option == "d":
             database.canteensNTU.sort_by_rank()
 
         # Display canteens sorted by distance with respect to your current position
-        elif user_option == "d":
+        elif user_option == "e":
             # get user's current_position from x,y coordinates in pygame display map and sort_by_distance
             get_user_location()
 
         # Search for canteens selling your preferred food
-        elif user_option == "e":
+        elif user_option == "f":
             food_name = input("Enter the name of the food to search: ")
             database.canteensNTU.search_by_food(food_name)
 
         # Display food within a selected price range
-        elif user_option == "f":
+        elif user_option == "g":
             print("Input two numbers denoting your preferred price range: ")
             input1 = input("Minimum value: ")
             input2 = input("Maximum value: ")
@@ -158,14 +202,15 @@ def main():
             else:
                 database.canteensNTU.search_by_price((float(input1), float(input2)))
 
-        elif user_option == "g":
+        # Update rank of selected canteen
+        elif user_option == "h":
             # print every line of message in list_of_canteens on a new line
             for line_in_canteen_list in list_of_canteens():
                 print(line_in_canteen_list)
             canteen_id_str = input("Input the canteen_id that you want to update: ")
             while True:
                 if canteen_id_str.isdigit():
-                    if int(canteen_id_str) >= 0 and int(canteen_id_str) <= 11:
+                    if 0 <= int(canteen_id_str) <= 11:
                         canteen_id = int(canteen_id_str)
                         break
                     else:
