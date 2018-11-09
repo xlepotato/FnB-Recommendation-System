@@ -318,3 +318,61 @@ canteensNTU.add(Canteen("NIE Canteen", "1 Nanyang Walk, Singapore 637616", True,
                         4.3, 'B', (189, 42), "6790 3888", "Mon to Fri: 7am to 9pm, Sat & Sun: 7am to 9pm", 14,
                         1576, False, False
                         ))
+
+
+canteensNTU.add(Canteen("Koufu @ the South Spine", "50 Nanyang Avenue SS3-B4 Singapore 639798", True, True,
+                        [Food("Japanese Cuisine", "Kaki Fuyong Oyster", 2.70, "450"),
+                         Food("Japanese Cuisine", "Curry Don", 3.50, "520"),
+                         Food("Japanese Cuisine", "Tempura Bento Set", 5.5, "738"),
+                         Food("Muslim Food", "Nasi Lemak", 3.2, "465"),
+                         Food("Muslim Food", "Mee Rebus", 3.0, "432"),
+                         Food("Dim Sum", "Wholemeal Red Bean Bun", 0.7, "550"),
+                         Food("Dim Sum", "Soon Kueh", 0.6, "119"),
+                         Food("Pasta Express", "Carbonara", 3.8, "5322"),
+                         Food("Pasta Express", "Tomato Pasta", 3.8, "522"),
+                         Food("Ban Mian & Fish Soup", "Seafood Ban Mian", 3.5, "528"),
+                         Food("Ban Mian & Fish Soup", "Fried Fish Soup", 3.5, "489"),
+                         Food("Chicken Rice", "Hainanese Chicken Rice", 3.0, "489"),
+                         Food("Chicken Rice", "Chicken Porridge", 3.0, "489"),
+                         Food("Noodle", "Mushroom Minced Meat", 3.5, "500"),
+                         Food("Noodle", "Prawn Mee", 3.8, "455")],
+                        3.6, 'B', (133, 375), "6790 0355", "Mon to Fri: 7am to 9pm, Sat: 7am to 3pm", 15,
+                        1050, True, False
+                        ))
+
+
+canteensNTU.add(Canteen("Quad Cafe", "60 Nanyang Drive SBS-B1N-10 Singapore 637551", True, True,
+                        [Food("Japanese Cuisine", "Kaki Fuyong Oyster", 3.8, "450"),
+                         Food("Japanese Cuisine", "Curry Don", 3.3, "520"),
+                         Food("Muslim Food", "Nasi Lemak", 3.8, "465"),
+                         Food("Muslim Food", "Mee Rebus", 3.5, "432"),
+                         Food("Dim Sum", "Red Bean Bun", 0.6, "550"),
+                         Food("Dim Sum", "Soon Kueh", 0.5, "119"),
+                         Food("Ban Mian & Fish Soup", "Seafood Ban Mian", 4.0, "528"),
+                         Food("Ban Mian & Fish Soup", "Fried Fish Soup", 4.5, "489"),
+                         Food("Chicken Rice", "Hainanese Chicken Rice", 3.5, "492"),
+                         Food("Chicken Rice", "Chicken Porridge", 3.2, "489"),
+                         Food("Noodle", "Mushroom Minced Meat", 3.6, "500"),
+                         Food("Noodle", "Prawn Mee", 4.0, "455")],
+                        3.9, 'B', (125, 269), "9638 0392", "Mon to Fri: 7am to 9pm, Sat: 7am to 3pm", 8,
+                        500, True, False
+                        ))
+
+
+
+canteensNTU.add(Canteen("Food Court 16", "60 Nanyang Drive SBS-B1N-10 Singapore 637551", True, True,
+                        [Food("Japanese Cuisine", "Kaki Fuyong Oyster", 3.8, "450"),
+                         Food("Japanese Cuisine", "Curry Don", 3.3, "520"),
+                         Food("Muslim Food", "Nasi Lemak", 3.8, "465"),
+                         Food("Muslim Food", "Mee Rebus", 3.5, "432"),
+                         Food("Dim Sum", "Red Bean Bun", 0.6, "550"),
+                         Food("Dim Sum", "Soon Kueh", 0.5, "119"),
+                         Food("Ban Mian & Fish Soup", "Seafood Ban Mian", 4.0, "528"),
+                         Food("Ban Mian & Fish Soup", "Fried Fish Soup", 4.5, "489"),
+                         Food("Chicken Rice", "Hainanese Chicken Rice", 3.5, "492"),
+                         Food("Chicken Rice", "Chicken Porridge", 3.2, "489"),
+                         Food("Noodle", "Mushroom Minced Meat", 3.6, "500"),
+                         Food("Noodle", "Prawn Mee", 4.0, "455")],
+                        3.9, 'B', (125, 269), "9638 0392", "Mon to Fri: 7am to 9pm, Sat: 7am to 3pm", 8,
+                        500, True, False
+                        ))
