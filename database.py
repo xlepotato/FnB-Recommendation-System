@@ -1,5 +1,9 @@
 from math import sqrt
 
+# distance between two points
+def distance_a_b(a, b):
+    return sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2)
+
 
 # Separate class for the Food
 class Food:
@@ -68,15 +72,6 @@ class Canteen:
         print("Seat Capacity:", self.capacity if self.capacity > 0 else "NA")
         print("Open on weekends:", "Yes" if self.isOpenWkd is True else "No")
         print("Open on public holidays:", "Yes" if self.isOpenPH is True else "No")
-
-    # updates the rank of the canteen
-    def update_rank(self, new_rank):
-        self.rank = new_rank
-
-
-# distance between two points
-def distance_a_b(a, b):
-    return sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2)
 
 
 # Separate class for the List of Canteens
@@ -168,7 +163,7 @@ class ListOfCanteens:
 
     # update the rank of some canteen from the list
     def update_rank(self, canteen_id, new_rank):
-        self.list[canteen_id].update_rank(new_rank)
+        self.list[canteen_id].rank = new_rank
 
 
 # canteensNTU has all the data
@@ -309,7 +304,9 @@ canteensNTU.add(Canteen("North Spine Food Court", "North Spine Plaza, 76 Nanyang
                          Food("Indian Cuisine", "Curry Chicken Biryani", 4.5, "NA")],
                         3.6, 'B', (212, 170), "6465 8588", "Mon to Fri: 7am to 9pm, Sat: 7am to 3pm", 9,
                         1838, True, False
-                        ))canteensNTU.add(Canteen("Subway", "North Spine Plaza 76 Nanyang Drive N2.1-01-04 Singapore 637331", True, True,
+                        ))
+
+canteensNTU.add(Canteen("Subway", "North Spine Plaza 76 Nanyang Drive N2.1-01-04 Singapore 637331", True, True,
                         [Food("NA", "Chicken Bacon Ranch Sandwich", 6.95, "NA"),
                          Food("NA", "Chicken Teriyaki Sandwich", 6.95, "NA"),
                          Food("NA", "Cold Cut Trio Sandwich", 6.95, "NA"),
