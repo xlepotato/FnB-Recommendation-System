@@ -69,7 +69,7 @@ def welcome_message():
 def list_of_options():
     message_options = ["Below are the list of options you can choose from:"," ",
                        "Option a: Display all information of canteens at NTU",
-                       "Option b: Display information on a canteen by name"
+                       "Option b: Display information on a canteen by name",
                        "Option c: Display canteens sorted by rank",
                        "Option d: Display canteens sorted by distance from your position",
                        "Option e: Search for canteens selling your preferred food",
@@ -144,20 +144,25 @@ def main():
         # Display food within a selected price range
         elif user_option == "f":
             print("Input two numbers denoting your preferred price range: ")
-            input1 = input("Minimum value: ")
-            input2 = input("Maximum value: ")
-            try:
-                float(input1)
-                float(input2)
-                if float(input1) > float(input2):
-                    raise Exception("First input should be less than or equal to the second input!")
-            except ValueError:
-                print("Wrong input format!")
-            except Exception as error:
-                print(error)
-            else:
-                database.canteensNTU.search_by_price((float(input1), float(input2)))
+            while True:
+                input1 = input("Minimum value: ")
+                input2 = input("Maximum value: ")
+                try:
+                    float(input1)
+                    float(input2)
+                    if float(input1) < 0.0 or float(input2) < 0.0:
+                        raise Exception("Numbers should be positive!")
+                    if float(input1) > float(input2):
+                        raise Exception("First input should be less than or equal to the second input!")
+                except ValueError:
+                    print("Wrong input format, please input only numbers!")
+                except Exception as error:
+                    print(error, "Input again!")
+                else:
+                    database.canteensNTU.search_by_price((float(input1), float(input2)))
+                    break
 
+        # Update rank of selected canteen
         elif user_option == "g":
             # print every line of message in list_of_canteens on a new line
             for line_in_canteen_list in list_of_canteens():
@@ -169,23 +174,24 @@ def main():
                         canteen_id = int(canteen_id_str)
                         break
                     else:
-                        print("Please input an integer between 0 and 8 inclusive")
+                        print("Please input an integer between 0 and 11 inclusive")
                         canteen_id_str = input("Input the canteen_id that you want to update: ")
                 else:
                     print("Please input a positive integer")
                     canteen_id_str = input("Input the canteen_id that you want to update: ")
-            rank = input("Input the new rank for the canteen from 0.0 to 5.0: ")
-            try:
-                float(rank)
-                if float(rank) < 0 or float(rank) > 5.0:
-                    raise Exception("Please enter a value between 0 and 5 inclusive")
-            except ValueError:
-                print("Wrong input format!")
-            except Exception as error:
-                print(error)
-            else:
-                database.canteensNTU.update_rank(canteen_id,rank)
-
+            while True:
+                rank = input("Input the new rank for the canteen from 0.0 to 5.0: ")
+                try:
+                    float(rank)
+                    if float(rank) < 0 or float(rank) > 5.0:
+                        raise Exception("Please enter a value between 0 and 5 inclusive")
+                except ValueError:
+                    print("Wrong input format!")
+                except Exception as error:
+                    print(error)
+                else:
+                    database.canteensNTU.update_rank(canteen_id, float(rank))
+                    break
 
         # user to press z to exit the application
         elif user_option == "z":
