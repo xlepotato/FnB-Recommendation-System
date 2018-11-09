@@ -1,5 +1,9 @@
 from math import sqrt
 
+# distance between two points
+def distance_a_b(a, b):
+    return sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2)
+
 
 # Separate class for the Food
 class Food:
@@ -168,7 +172,7 @@ class ListOfCanteens:
 
     # update the rank of some canteen from the list
     def update_rank(self, canteen_id, new_rank):
-        self.list[canteen_id].update_rank(new_rank)
+        self.list[canteen_id].rank = new_rank
 
 
 # canteensNTU has all the data
@@ -192,7 +196,6 @@ canteensNTU.add(Canteen("Each A Cup", "North Spine Plaza, 50 Nanyang Avenue, NS3
                         3.2, 'NA', (240, 184), "9182 9307", "Mon to Fri: 9am to 9pm, Sat & Sun: 9am to 6pm", -1,
                         -1, True, False
                         ))
-
 canteensNTU.add(Canteen("Food Court 1", "21 Nanyang Circle, Hall 1, Singapore 639778", False, False,
                         [Food("Economical Rice", "Steam Pork Rice", 3.5, "500"),
                          Food("Economical Rice", "Old Cucumber & Pork Ribs Soup", 2.3, "446"),
@@ -209,7 +212,6 @@ canteensNTU.add(Canteen("Food Court 1", "21 Nanyang Circle, Hall 1, Singapore 63
                         3.1, 'NA', (379, 358), "6334 3033", "Mon to Fri: 7am to 9pm, Sat & Sun: 7am to 9pm", 5,
                         310, True, True
                         ))
-
 canteensNTU.add(Canteen("Food Court 2", "35 Students Walk, Hall 2, Singapore 639548", True, True,
                         [Food("Japanese Western", "Plain Yakisoba", 4.0, "450"),
                          Food("Japanese Western", "Curry Omelette", 5.0, "520"),
@@ -325,4 +327,62 @@ canteensNTU.add(Canteen("Subway", "North Spine Plaza 76 Nanyang Drive N2.1-01-04
                          ],
                         3.7, 'A', (212, 166), "6462 5238", "Mon to Fri: 8am to 9pm, Sat & Sun: 11am to 6pm", -1,
                         999, True, False
+                        ))
+
+
+canteensNTU.add(Canteen("Koufu @ the South Spine", "50 Nanyang Avenue SS3-B4 Singapore 639798", True, True,
+                        [Food("Japanese Cuisine", "Kaki Fuyong Oyster", 2.70, "450"),
+                         Food("Japanese Cuisine", "Curry Don", 3.50, "520"),
+                         Food("Japanese Cuisine", "Tempura Bento Set", 5.5, "738"),
+                         Food("Muslim Food", "Nasi Lemak", 3.2, "465"),
+                         Food("Muslim Food", "Mee Rebus", 3.0, "432"),
+                         Food("Dim Sum", "Wholemeal Red Bean Bun", 0.7, "550"),
+                         Food("Dim Sum", "Soon Kueh", 0.6, "119"),
+                         Food("Pasta Express", "Carbonara", 3.8, "5322"),
+                         Food("Pasta Express", "Tomato Pasta", 3.8, "522"),
+                         Food("Ban Mian & Fish Soup", "Seafood Ban Mian", 3.5, "528"),
+                         Food("Ban Mian & Fish Soup", "Fried Fish Soup", 3.5, "489"),
+                         Food("Chicken Rice", "Hainanese Chicken Rice", 3.0, "489"),
+                         Food("Chicken Rice", "Chicken Porridge", 3.0, "489"),
+                         Food("Noodle", "Mushroom Minced Meat", 3.5, "500"),
+                         Food("Noodle", "Prawn Mee", 3.8, "455")],
+                        3.6, 'B', (133, 375), "6790 0355", "Mon to Fri: 7am to 9pm, Sat: 7am to 3pm", 15,
+                        1050, True, False
+                        ))
+
+
+canteensNTU.add(Canteen("Quad Cafe", "60 Nanyang Drive SBS-B1N-10 Singapore 637551", True, True,
+                        [Food("Japanese Cuisine", "Kaki Fuyong Oyster", 3.8, "450"),
+                         Food("Japanese Cuisine", "Curry Don", 3.3, "520"),
+                         Food("Muslim Food", "Nasi Lemak", 3.8, "465"),
+                         Food("Muslim Food", "Mee Rebus", 3.5, "432"),
+                         Food("Dim Sum", "Red Bean Bun", 0.6, "550"),
+                         Food("Dim Sum", "Soon Kueh", 0.5, "119"),
+                         Food("Ban Mian & Fish Soup", "Seafood Ban Mian", 4.0, "528"),
+                         Food("Ban Mian & Fish Soup", "Fried Fish Soup", 4.5, "489"),
+                         Food("Chicken Rice", "Hainanese Chicken Rice", 3.5, "492"),
+                         Food("Chicken Rice", "Chicken Porridge", 3.2, "489"),
+                         Food("Noodle", "Mushroom Minced Meat", 3.6, "500"),
+                         Food("Noodle", "Prawn Mee", 4.0, "455")],
+                        3.9, 'B', (125, 269), "9638 0392", "Mon to Fri: 7am to 9pm, Sat: 7am to 3pm", 8,
+                        500, True, False
+                        ))
+
+
+
+canteensNTU.add(Canteen("Food Court 16", "60 Nanyang Drive SBS-B1N-10 Singapore 637551", True, True,
+                        [Food("Japanese Cuisine", "Kaki Fuyong Oyster", 3.8, "450"),
+                         Food("Japanese Cuisine", "Curry Don", 3.3, "520"),
+                         Food("Muslim Food", "Nasi Lemak", 3.8, "465"),
+                         Food("Muslim Food", "Mee Rebus", 3.5, "432"),
+                         Food("Dim Sum", "Red Bean Bun", 0.6, "550"),
+                         Food("Dim Sum", "Soon Kueh", 0.5, "119"),
+                         Food("Ban Mian & Fish Soup", "Seafood Ban Mian", 4.0, "528"),
+                         Food("Ban Mian & Fish Soup", "Fried Fish Soup", 4.5, "489"),
+                         Food("Chicken Rice", "Hainanese Chicken Rice", 3.5, "492"),
+                         Food("Chicken Rice", "Chicken Porridge", 3.2, "489"),
+                         Food("Noodle", "Mushroom Minced Meat", 3.6, "500"),
+                         Food("Noodle", "Prawn Mee", 4.0, "455")],
+                        3.9, 'B', (125, 269), "9638 0392", "Mon to Fri: 7am to 9pm, Sat: 7am to 3pm", 8,
+                        500, True, False
                         ))
