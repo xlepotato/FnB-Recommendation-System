@@ -25,7 +25,7 @@ def MouseClick():
 # ------------------------------------------------------------------
 
 
-# ------------------------- Get User Location -------------------------
+# ------------------------- Get User Location ----------------------
 
 def get_user_location():
     # make necessary initializations for Width, Height
@@ -68,14 +68,18 @@ def welcome_message():
 # messages to appear for user to select options from our list_of_options
 def list_of_options():
     message_options = ["Below are the list of options you can choose from:"," ",
-                       "Option a: List of canteens at NTU",
-                       "Option b: Display canteens sorted by rank",
-                       "Option c: Display canteens sorted by distance from your position",
-                       "Option d: Search for canteens selling your preferred food",
-                       "Option e: Search for food within a selected price range"," ",
+                       "Option a: Display all information of canteens at NTU",
+                       "Option b: Display information on a canteen by name"
+                       "Option c: Display canteens sorted by rank",
+                       "Option d: Display canteens sorted by distance from your position",
+                       "Option e: Search for canteens selling your preferred food",
+                       "Option f: Search for food within a selected price range"," ",
+                       "Option g: Update rank of selected canteen"
                        "Otherwise, press z to exit the application."]
     return message_options
 
+def list_of_canteens():
+    canteen_list = [""]
 
 # ------------------------------------------------------------------
 
@@ -107,22 +111,25 @@ def main():
         if user_option == "a":
             database.canteensNTU.info()
 
-        # Display canteens sorted by rank
         elif user_option == "b":
+            database.canteensNTU.update_rank(canteen_id, rank)
+
+        # Display canteens sorted by rank
+        elif user_option == "c":
             database.canteensNTU.sort_by_rank()
 
         # Display canteens sorted by distance with respect to your current position
-        elif user_option == "c":
+        elif user_option == "d":
             # get user's current_position from x,y coordinates in pygame display map and sort_by_distance
             get_user_location()
 
         # Search for canteens selling your preferred food
-        elif user_option == "d":
+        elif user_option == "e":
             food_name = input("Enter the name of the food to search: ")
             database.canteensNTU.search_by_food(food_name)
 
         # Display food within a selected price range
-        elif user_option == "e":
+        elif user_option == "f":
             print("Input two numbers denoting your preferred price range: ")
             input1 = input("Minimum value: ")
             input2 = input("Maximum value: ")
@@ -137,6 +144,9 @@ def main():
                 print(error)
             else:
                 database.canteensNTU.search_by_price((float(input1), float(input2)))
+
+        elif user_option == "g":
+
 
         # user to press z to exit the application
         elif user_option == "z":
