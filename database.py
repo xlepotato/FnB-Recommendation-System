@@ -58,6 +58,9 @@ class Canteen:
         for food in self.foodMenu:
             print(food.description())
 
+    def add_food_to_menu(self, new_food):
+        self.foodMenu.append(new_food)
+
     # prints the information of the Canteen
     def info(self):
         print("Name:", self.name)
@@ -176,7 +179,7 @@ class ListOfCanteens:
 
     # add the new food for some canteen from the list
     def add_food(self, canteen_id, new_food):
-        self.list[canteen_id].menu.append(new_food)
+        self.list[canteen_id].add_food_to_menu(new_food)
 
     # update the food info for some canteen from the list
     def update_food(self, canteen_id, food_id, new_food):
