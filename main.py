@@ -127,6 +127,35 @@ def canteen_display(user_option):
             print()
     return canteen_id
 
+'''
+Function Name: food_display()
+Function Parameter: None
+Function Return: food_id
+Purpose: Display the list of food available in a selected canteen and prompts user for food_id with validation check
+'''
+
+def food_display(canteen_id):
+    food_number = 0
+    # print every line of message in list_of_canteens on a new line with corresponding index
+    for food in database.canteensNTU.list[canteen_id].foodMenu:
+        print(food_number, ": ", food.name)
+        food_number += 1
+    print()
+    # Ensure that user will always input valid value
+    while True:
+        food_id_str = input("Input the food id that you want to update: ")
+        if food_id_str.isdigit():
+            if 0 <= int(food_id_str) <= len(database.canteensNTU.list[canteen_id].foodMenu):
+                food_id = int(food_id_str)
+                break
+            else:
+                print("Please input an integer between 0 and ", len(database.canteensNTU.list[canteen_id].foodMenu), " inclusive")
+                print()
+        else:
+            print("Please input a positive integer")
+            print()
+    return food_id
+
 
 # ------------------------------------------------------------------
 
@@ -223,12 +252,7 @@ def main():
         # Update food in the food menu of selected canteen
         elif user_option == "i":
             canteen_id = canteen_display(user_option)  # prompt user for the canteen id and display the list of canteen
-            food_number = 0
-            for food in database.canteensNTU.list[canteen_id].foodMenu:
-                print(food_number,": ",food.name)
-                food_number += 1
-            print()
-            food_id = int(input("Input the food id that you want to update: "))
+            food_id = food_display(canteen_id)
             new_price = float(input("Input a new price value for the food: "))
             new_calorie = input("Input a new calorie value for the food: ")
             stall_name = database.canteensNTU.list[canteen_id].foodMenu[food_id].stall
