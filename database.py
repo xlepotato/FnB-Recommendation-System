@@ -16,10 +16,10 @@ class Food:
 
     # returns the string description of the Food
     def description(self):
-        result = "Food {}".format(self.name)
+        result = '"{}"'.format(self.name)
         if self.stall != "NA":
-            result = result + " from stall {}".format(self.stall)
-        result = result + " costs ${}".format(self.price)
+            result = result + ' from stall "{}"'.format(self.stall)
+        result = result + ", costs ${}".format(self.price)
         if self.calorie != "NA":
             result = result + " and has {} kcal".format(self.calorie)
         return result
@@ -54,9 +54,11 @@ class Canteen:
 
     # prints the menu description of the Canteen
     def menu(self):
-        print("Canteen", self.name, "has foods like:")
+        print('"{0}" has foods like: '.format(self.name))
+        ptr = 0
         for food in self.foodMenu:
-            print(food.description())
+            print('{0}: {1}'.format(ptr, food.description()))
+            ptr = ptr + 1
 
     # add new food to the existing food menu
     def add_food_to_menu(self, new_food):
@@ -74,8 +76,8 @@ class Canteen:
         print("Working time:", self.workingTime)
         print("Number of stalls:", self.numberOfStalls if self.numberOfStalls > 0 else "NA")
         print("Seat Capacity:", self.capacity if self.capacity > 0 else "NA")
-        print("Open on weekends:", "Yes" if self.isOpenWkd is True else "No")
-        print("Open on public holidays:", "Yes" if self.isOpenPH is True else "No")
+        print("Is open on weekends:", "Yes" if self.isOpenWkd is True else "No")
+        print("Is open on public holidays:", "Yes" if self.isOpenPH is True else "No")
 
     # updates the rank of the canteen
     def update_rank(self, new_rank):
@@ -158,10 +160,10 @@ class ListOfCanteens:
 
             list_canteens = sorted(list_canteens, key=lambda x: x[0])
             print("The canteens are sorted by distance from your position:")
+            ptr = 0
             for element in list_canteens:
-                print("Distance from your position to this canteen is", round(element[0], 2))
-                element[1].info()
-                print()
+                print('{0}: "{1}" and distance is {2}'.format(ptr, element[1].name, round(element[0], 2)))
+                ptr = ptr + 1
 
     # this function sorts the canteens by google rank
     def sort_by_rank(self):
@@ -172,10 +174,10 @@ class ListOfCanteens:
 
         list_canteens = sorted(list_canteens, key=lambda x: x[0], reverse=True)
         print("The canteens are sorted by Google Rank:")
+        ptr = 0
         for element in list_canteens:
-            print("The rank of this canteen is: ", element[0])
-            element[1].info()
-            print()
+            print('{0}: "{1}" and its rank is {2}'.format(ptr, element[1].name, element[0]))
+            ptr = ptr + 1
 
     # update the rank of some canteen from the list
     def update_rank(self, canteen_id, new_rank):
@@ -211,6 +213,7 @@ canteensNTU.add(Canteen("Each A Cup", "North Spine Plaza, 50 Nanyang Avenue, NS3
                         3.2, 'NA', (240, 184), "9182 9307", "Mon to Fri: 9am to 9pm, Sat & Sun: 9am to 6pm", -1,
                         -1, True, False
                         ))
+
 canteensNTU.add(Canteen("Food Court 1", "21 Nanyang Circle, Hall 1, Singapore 639778", False, False,
                         [Food("Economical Rice", "Steam Pork Rice", 3.5, "500"),
                          Food("Economical Rice", "Old Cucumber & Pork Ribs Soup", 2.3, "446"),
@@ -227,6 +230,7 @@ canteensNTU.add(Canteen("Food Court 1", "21 Nanyang Circle, Hall 1, Singapore 63
                         3.1, 'NA', (379, 358), "6334 3033", "Mon to Fri: 7am to 9pm, Sat & Sun: 7am to 9pm", 5,
                         310, True, True
                         ))
+
 canteensNTU.add(Canteen("Food Court 2", "35 Students Walk, Hall 2, Singapore 639548", True, True,
                         [Food("Japanese Western", "Plain Yakisoba", 4.0, "450"),
                          Food("Japanese Western", "Curry Omelette", 5.0, "520"),

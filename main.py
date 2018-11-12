@@ -3,8 +3,6 @@ import pygame
 
 
 # ------------------------- MouseClick -------------------------
-
-
 # define event handler for mouse click.
 # this event handler will be fired (activated) when user clicks a mouse button anywhere in the display window
 def MouseClick():
@@ -22,13 +20,10 @@ def MouseClick():
     if (mouseX,mouseY) == (0,0):
         pygame.display.quit()
     return (mouseX, mouseY)
-
-
 # ------------------------------------------------------------------
 
 
 # ------------------------- Get User Location ----------------------
-
 def get_user_location():
     # make necessary initializations for Width, Height
     W = 640
@@ -54,35 +49,35 @@ def get_user_location():
 
     # get outputs of MouseClick event handler, and pass it to sort_by_distance
     database.canteensNTU.sort_by_distance(MouseClick())
-
 # ------------------------------------------------------------------
 
 
 # ------------------------- Intro Messages -------------------------
-
-
 # messages to appear at the start of application
 def welcome_message():
-    introduction = ["Welcome to our F&B recommendation app!!!"," ",
+    introduction = ["Welcome to our F&B recommendation app!!!", " ",
                     "In this app, we will help you identify and sort canteens/food based on your preferences."]
     return introduction
 
+
 # messages to appear for user to select options from our list_of_options
 def list_of_options():
-    message_options = ["Below are the list of options you can choose from:"," ",
-                       "Option a: Display all information of canteens at NTU",
-                       "Option b: Display information including food menu of a canteen by name",
-                       "Option c: Display food menu of a canteen by name",
-                       "Option d: Display canteens sorted by rank",
+    message_options = ["Below are the list of options you can choose from:", " ",
+                       "Option a: Display all the information of canteens at NTU",
+                       "Option b: Display information of a canteen that you select",
+                       "Option c: Display food menu of a canteen that you select",
+                       "Option d: Display canteens sorted by Google Rank",
                        "Option e: Display canteens sorted by distance from your position",
                        "Option f: Search for canteens selling your preferred food",
                        "Option g: Search for food within a selected price range",
-                       "Option h: Update rank of selected canteen",
-                       "Option i: Update food menu of selected canteen",
-                       "Option j: Add new food in the food menu of a selected canteen"," ",
+                       "Option h: Update rank of a selected canteen",
+                       "Option i: Update food menu of a selected canteen",
+                       "Option j: Add new food to the food menu of a selected canteen", " ",
                        "Otherwise, press z to exit the application."]
     return message_options
 
+
+# list of canteens to appear for user to select one
 def list_of_canteens():
     canteen_list = ["0: Each A Cup",
                     "1: Food Court 1",
@@ -95,8 +90,9 @@ def list_of_canteens():
                     "8: NIE Canteen",
                     "9: North Spine Food Court",
                     "10: Subway",
-                    "11: Quad Cafe"," "]
+                    "11: Quad Cafe", " "]
     return canteen_list
+
 
 '''
 Function Name: canteen_display()
@@ -104,6 +100,8 @@ Function Parameter: None
 Function Return: canteen_id
 Purpose: Display the list of canteen available and prompts user for canteen_id with validation check
 '''
+
+
 def canteen_display(user_option):
     # print every line of message in list_of_canteens on a new line
     for line_in_canteen_list in list_of_canteens():
@@ -120,12 +118,13 @@ def canteen_display(user_option):
                 canteen_id = int(canteen_id_str)
                 break
             else:
-                print("Please input an integer between 0 and 11 inclusive")
+                print("Please input an integer between 0 and 11 inclusive!")
                 print()
         else:
-            print("Please input a positive integer")
+            print("Please input a positive integer!")
             print()
     return canteen_id
+
 
 '''
 Function Name: food_display()
@@ -134,11 +133,12 @@ Function Return: food_id
 Purpose: Display the list of food available in a selected canteen and prompts user for food_id with validation check
 '''
 
+
 def food_display(canteen_id):
     food_number = 0
     # print every line of message in list_of_canteens on a new line with corresponding index
     for food in database.canteensNTU.list[canteen_id].foodMenu:
-        print(food_number, ": ", food.name)
+        print("{0}: {1}".format(food_number, food.name))
         food_number += 1
     print()
     # Ensure that user will always input valid value
@@ -149,14 +149,13 @@ def food_display(canteen_id):
                 food_id = int(food_id_str)
                 break
             else:
-                print("Please input an integer between 0 and ", len(database.canteensNTU.list[canteen_id].foodMenu), " inclusive")
+                print("Please input an integer between 0 and", len(database.canteensNTU.list[canteen_id].foodMenu),
+                      "inclusive!")
                 print()
         else:
-            print("Please input a positive integer")
+            print("Please input a positive integer!")
             print()
     return food_id
-
-
 # ------------------------------------------------------------------
 
 
@@ -174,27 +173,29 @@ def main():
         print()
 
         # user selects the option listed in list_of_options
-        user_option = input("Please select your preferred option (eg. a,b,c etc.): ")
+        user_option = input("Please select your preferred option (eg. a, b, c,  etc.): ")
+
+        # user will be asked to select the options again if they select an option that is not listed
+        while len(user_option) != 1 or ((not "a" <= user_option <= "j") and user_option != "z"):
+            print("Please select the option correctly!")
+            user_option = input("Please select your preferred option (eg. a, b, c, etc.): ")
+
         print()
 
-        # user will be asked to select the options again if they select an option that is not listed in the list_of_options
-        while not user_option == "a" and user_option == "b" and user_option == "c" and user_option == "d" and user_option == "e" and user_option == "f" and user_option == "z":
-            print("Please select the option correctly.")
-            user_option = input("Please select your preferred option (eg. a, b, c, etc.): ")
-            print()
-
-        # list of canteens at NTU
+        # Display all the information of canteens at NTU
         if user_option == "a":
             database.canteensNTU.info()
 
         # Display information on a selected canteen
         elif user_option == "b":
-            canteen_id = canteen_display(user_option) #prompt user for the canteen id and display the list of canteen
+            # prompt user for the canteen id and display the list of canteen
+            canteen_id = canteen_display(user_option)
             database.canteensNTU.list[canteen_id].info()
 
         # Display food menu of a selected canteen
         elif user_option == "c":
-            canteen_id = canteen_display(user_option)  #prompt user for the canteen id and display the list of canteen
+            # prompt user for the canteen id and display the list of canteen
+            canteen_id = canteen_display(user_option)
             database.canteensNTU.list[canteen_id].menu()
 
         # Display canteens sorted by rank
@@ -225,7 +226,7 @@ def main():
                     if float(input1) > float(input2):
                         raise Exception("First input should be less than or equal to the second input!")
                 except ValueError:
-                    print("Wrong input format, please input only numbers!")
+                    print("Wrong input format, please input again!")
                 except Exception as error:
                     print(error, "Input again!")
                 else:
@@ -234,46 +235,96 @@ def main():
 
         # Update rank of selected canteen
         elif user_option == "h":
-            canteen_id = canteen_display(user_option)  # prompt user for the canteen id and display the list of canteen
+            # prompt user for the canteen id and display the list of canteen
+            canteen_id = canteen_display(user_option)
             while True:
                 rank = input("Input the new rank for the canteen from 0.0 to 5.0: ")
                 try:
                     float(rank)
                     if float(rank) < 0 or float(rank) > 5.0:
-                        raise Exception("Please enter a value between 0 and 5 inclusive")
+                        raise Exception("Please enter a value between 0 and 5 inclusive!")
                 except ValueError:
-                    print("Wrong input format!")
+                    print("Wrong input format, please input again!")
                 except Exception as error:
-                    print(error)
+                    print(error, "Input again!")
                 else:
                     database.canteensNTU.update_rank(canteen_id, float(rank))
                     break
 
         # Update food in the food menu of selected canteen
         elif user_option == "i":
-            canteen_id = canteen_display(user_option)  # prompt user for the canteen id and display the list of canteen
+            # prompt user for the canteen id and display the list of canteen
+            canteen_id = canteen_display(user_option)
             food_id = food_display(canteen_id)
-            new_price = float(input("Input a new price value for the food: "))
-            new_calorie = input("Input a new calorie value for the food: ")
+
+            while True:
+                new_price_str = input("Input a new price value for the food: ")
+                try:
+                    float(new_price_str)
+                    if float(new_price_str) < 0:
+                        raise Exception("Please enter a non-negative value!")
+                except ValueError:
+                    print("Wrong input format, please input again!")
+                except Exception as error:
+                    print(error, "Input again!")
+                else:
+                    new_price = float(new_price_str)
+                    break
+
+            while True:
+                new_calorie_str = input("Input a non-negative integer for a new calorie of the food: ")
+                try:
+                    int(new_calorie_str)
+                    if int(new_calorie_str) < 0:
+                        raise Exception("Please enter a non-negative value!")
+                except ValueError:
+                    print("Wrong input format, please input again!")
+                except Exception as error:
+                    print(error, "Input again!")
+                else:
+                    break
+
             stall_name = database.canteensNTU.list[canteen_id].foodMenu[food_id].stall
             food_name = database.canteensNTU.list[canteen_id].foodMenu[food_id].name
-            new_food = database.Food(stall_name, food_name, new_price, new_calorie)
+            new_food = database.Food(stall_name, food_name, new_price, new_calorie_str)
             database.canteensNTU.update_food(canteen_id, food_id, new_food)
-
 
         # Add new food to the specified canteen
         elif user_option == "j":
-            for line_in_canteen_list in list_of_canteens():
-                print(line_in_canteen_list)
-            canteen_id = canteen_display(user_option)  # prompt user for the canteen id and display the list of canteen
-            stall_name = input("Please enter the food stall name to add")
-            food_name = input("Please enter the name of the food to add")
-            #TODO: Exception handling for Float & Int
-            food_price = float(input("Please enter the price of the food"))
-            food_calorie = int(input("Please enter the calorie amount of the food"))
-            new_food = database.Food(stall_name, food_name, food_price, food_calorie)
-            database.canteensNTU.add_food(canteen_id,new_food)
-            print(database.canteensNTU.info()) #to be deleted, for testing purposes
+            # prompt user for the canteen id and display the list of canteen
+            canteen_id = canteen_display(user_option)
+            stall_name = input("Please input the food stall name to add (input NA if it not applicable): ")
+            food_name = input("Please input the name of the food to add: ")
+
+            while True:
+                new_price_str = input("Input a price value for the food: ")
+                try:
+                    float(new_price_str)
+                    if float(new_price_str) < 0:
+                        raise Exception("Please enter a non-negative value!")
+                except ValueError:
+                    print("Wrong input format, please input again!")
+                except Exception as error:
+                    print(error, "Input again!")
+                else:
+                    food_price = float(new_price_str)
+                    break
+
+            while True:
+                new_calorie_str = input("Input a non-negative integer for a calorie of the food: ")
+                try:
+                    int(new_calorie_str)
+                    if int(new_calorie_str) < 0:
+                        raise Exception("Please enter a non-negative value!")
+                except ValueError:
+                    print("Wrong input format, please input again!")
+                except Exception as error:
+                    print(error, "Input again!")
+                else:
+                    break
+
+            new_food = database.Food(stall_name, food_name, food_price, new_calorie_str)
+            database.canteensNTU.add_food(canteen_id, new_food)
 
         # user to press z to exit the application
         elif user_option == "z":
