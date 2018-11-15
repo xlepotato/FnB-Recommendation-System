@@ -67,7 +67,7 @@ def find_noun(text_tags):
 def find_noun_plural(text_tags):
     noun_plural = None
     for word, pos in text_tags:
-        if pos == 'NNS':  # NN is short for noun
+        if pos == 'NNS':  # NNS is short for plural noun
             noun_plural = word
             break
     return noun_plural
@@ -316,7 +316,7 @@ def detect_language(question):
 def chat():
     start = False
     keep_looping = True
-    print("*NOTE: Type 'provide me with your services' to go to the F&B Recommendation service")
+    print("**NOTE: To go to the F&B Recommendation service, try typing eg.'provide me with your services'")
     print()
     question = input('Type and enter to chat : ')
     f = detect_language(question)
@@ -334,7 +334,7 @@ def chat():
             else:
                 print('bot : ', answer)
                 print('')
-            print("*NOTE: Type 'provide me with your services' to go to the F&B Recommendation service")
+            print("**NOTE: To go to the F&B Recommendation service, try typing eg.'provide me with your services'")
             print()
             question = input('Type and enter to chat : ')
             f = detect_language(question)
