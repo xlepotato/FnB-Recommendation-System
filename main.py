@@ -56,8 +56,8 @@ def get_user_location():
 # ------------------------- Intro Messages -------------------------
 # messages to appear at the start of application
 def welcome_message():
-    introduction = ["Welcome to our F&B recommendation app!!! \n",
-                    "In this app, we will help you identify and sort canteens/food based on your preferences."]
+    introduction = ["Welcome to the F&B recommendation app!!! \n",
+                    "Let me help you identify and sort canteens/food based on your preferences."]
     return introduction
 
 
