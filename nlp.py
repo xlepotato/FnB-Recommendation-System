@@ -1,6 +1,3 @@
-# coding: utf-8
-
-# In[1]:
 
 
 import nltk
@@ -8,6 +5,7 @@ from nltk.tokenize import word_tokenize
 import random
 from textblob import TextBlob
 from textblob import Word
+from nltk.corpus import wordnet
 
 
 
@@ -15,7 +13,7 @@ GREETING_KEYWORDS = ("hello", "hi", "greeting", "hey", "whazzup", "sup")
 
 GREETING_RESPONSES = ["hi hi !", "hey !", "*nods*", "good day !", "oh, its you !!", "you talking to me ?", "what do you want from me ?!"]
 
-RECOMMENDATION_HOTWORD = ["provide", "service", "show"]
+RECOMMENDATION_HOTWORD = ["provide","show", "give", "want"]
 
 
 def greeting(sentence, translate):
@@ -195,16 +193,30 @@ def respond(ques, translate, lan):
         print(noun_list)
         for noun in noun_list:
             if noun == "service" or noun == "services":  # checks if the noun matches the hotword to the F&B recommendation option display
-                print(verb[0].get_synsets(None))
+                # print(verb[0].get_synsets(None))
                 for word in RECOMMENDATION_HOTWORD:
-                    tb = Word(word)
-                    if verb[0] == tb.get_synsets(None):
-                        print(verb[0])
-                        print(tb.get_synsets(None))
-                    if verb[0] == word:
+                    synonyms = []
+                    for syn in wordnet.synsets(word):
+                        for l in syn.lemmas():
+                            synonyms.append(l.name())
+                            # if l.antonyms():
+                            #     antonyms.append(l.antonyms()[0].name())
+
+                    list_of_synonyms = set(synonyms)
+                    # list_of_synonyms.append(verb[0])
+                    print(list_of_synonyms)
+                    print(set(synonyms))
+
+                    # tb = Word(word)
+                    # if verb[0] == tb.get_synsets(None):
+                    #     print(verb[0])
+                    #     print(tb.get_synsets(None))
+                    for word in list_of_synonyms:
+                        if verb[0] == word:
+                    # if verb[0] == word:
                 # if verb[0] == RECOMMENDATION_HOTWORD.get_synsets
                 # if verb[0] == "provide":
-                        return "True"
+                            return "True"
         # verb = find_verb(text_tags)
         # print(verb, " verb")
         adjective = find_adjective(text_tags)
