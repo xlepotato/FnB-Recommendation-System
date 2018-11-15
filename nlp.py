@@ -193,32 +193,18 @@ def respond(ques, translate, lan):
         print(noun_list)
         for noun in noun_list:
             if noun == "service" or noun == "services":  # checks if the noun matches the hotword to the F&B recommendation option display
-                # print(verb[0].get_synsets(None))
+                #Look for possible synonyms for words in the recommendation hotword list.
                 for word in RECOMMENDATION_HOTWORD:
                     synonyms = []
                     for syn in wordnet.synsets(word):
                         for l in syn.lemmas():
                             synonyms.append(l.name())
-                            # if l.antonyms():
-                            #     antonyms.append(l.antonyms()[0].name())
-
                     list_of_synonyms = set(synonyms)
-                    # list_of_synonyms.append(verb[0])
-                    print(list_of_synonyms)
-                    print(set(synonyms))
-
-                    # tb = Word(word)
-                    # if verb[0] == tb.get_synsets(None):
-                    #     print(verb[0])
-                    #     print(tb.get_synsets(None))
+                    # if verb matches one of the word in the hotkey, including synoyms, display the service
                     for word in list_of_synonyms:
                         if verb[0] == word:
-                    # if verb[0] == word:
-                # if verb[0] == RECOMMENDATION_HOTWORD.get_synsets
-                # if verb[0] == "provide":
                             return "True"
-        # verb = find_verb(text_tags)
-        # print(verb, " verb")
+
         adjective = find_adjective(text_tags)
         response_pronoun = find_response_pronoun(text_tags)
 
