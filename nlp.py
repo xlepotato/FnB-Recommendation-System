@@ -279,8 +279,6 @@ def respond(ques, translate, lan):
     return resp
 
 
-# In[13]:
-
 def native_lang_to_en(resp, lan):
     b = TextBlob(resp)
     b = b.translate(from_lang='en', to=lan)
