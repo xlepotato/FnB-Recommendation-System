@@ -15,7 +15,7 @@ GREETING_KEYWORDS = ("hello", "hi", "greeting", "hey", "whazzup", "sup")
 
 GREETING_RESPONSES = ["hi hi !", "hey !", "*nods*", "good day !", "oh, its you !!", "you talking to me ?", "what do you want from me ?!"]
 
-
+RECOMMENDATION_HOTWORD = ["provide", "service", "show"]
 
 
 def greeting(sentence, translate):
@@ -56,6 +56,13 @@ def preprocess(text, translate):
     return clean_text
 
 
+def find_all_noun_in_sentence(text_tags):
+    noun_list = []
+    noun = None
+    for word, pos in text_tags:
+        if pos == 'NN' or pos == 'NNS':  # NN is short for noun, NNS is short for noun_plural
+            noun_list.append(word)
+    return noun_list
 
 
 def find_noun(text_tags):
@@ -66,6 +73,13 @@ def find_noun(text_tags):
             break
     return noun
 
+def find_noun_plural(text_tags):
+    noun_plural = None
+    for word, pos in text_tags:
+        if pos == 'NNS':  # NN is short for noun
+            noun_plural = word
+            break
+    return noun_plural
 
 
 
@@ -170,14 +184,29 @@ def respond(ques, translate, lan):
 
         # find parts of speech
         text = TextBlob(clean_text)
+        print(text)
         text_tags = text.tags
-        # print(text_tags)
+        print(text_tags)
 
         noun = find_noun(text_tags)
-        # print(noun)
-        if noun == "service":
-            return "True"
+        noun_list = find_all_noun_in_sentence(text_tags)
         verb = find_verb(text_tags)
+        print(verb, " verb")
+        print(noun_list)
+        for noun in noun_list:
+            if noun == "service" or noun == "services":  # checks if the noun matches the hotword to the F&B recommendation option display
+                print(verb[0].get_synsets(None))
+                for word in RECOMMENDATION_HOTWORD:
+                    tb = Word(word)
+                    if verb[0] == tb.get_synsets(None):
+                        print(verb[0])
+                        print(tb.get_synsets(None))
+                    if verb[0] == word:
+                # if verb[0] == RECOMMENDATION_HOTWORD.get_synsets
+                # if verb[0] == "provide":
+                        return "True"
+        # verb = find_verb(text_tags)
+        # print(verb, " verb")
         adjective = find_adjective(text_tags)
         response_pronoun = find_response_pronoun(text_tags)
 
