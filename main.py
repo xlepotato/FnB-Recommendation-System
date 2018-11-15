@@ -1,5 +1,6 @@
 import database
 import pygame
+from nlp import chat
 
 
 # ------------------------- MouseClick -------------------------
@@ -55,7 +56,7 @@ def get_user_location():
 # ------------------------- Intro Messages -------------------------
 # messages to appear at the start of application
 def welcome_message():
-    introduction = ["Welcome to our F&B recommendation app!!!", " ",
+    introduction = ["Welcome to our F&B recommendation app!!! \n",
                     "In this app, we will help you identify and sort canteens/food based on your preferences."]
     return introduction
 
@@ -73,7 +74,7 @@ def list_of_options():
                        "Option h: Update rank of a selected canteen",
                        "Option i: Update food menu of a selected canteen",
                        "Option j: Add new food to the food menu of a selected canteen", " ",
-                       "Otherwise, press z to exit the application."]
+                       "Otherwise, enter z to exit the application."]
     return message_options
 
 
@@ -163,7 +164,7 @@ def main():
     print()
     # print every line of message in welcome_message on one line in terminal
     for line_in_welcome in welcome_message():
-        print(line_in_welcome)
+        print("bot : ",line_in_welcome)
 
     print()
     while True:
@@ -205,6 +206,7 @@ def main():
         # Display canteens sorted by distance with respect to your current position
         elif user_option == "e":
             # get user's current_position from x,y coordinates in pygame display map and sort_by_distance
+            print("bot : Select your current location on the map.")
             get_user_location()
 
         # Search for canteens selling your preferred food
@@ -342,4 +344,15 @@ def main():
 
 if __name__ == '__main__':
     pygame.init()
-    main()
+    keep_looping = True
+    while keep_looping:
+        result = chat()
+        # print(result)
+        if result:
+            main()
+        else:
+            break
+
+
+
+
