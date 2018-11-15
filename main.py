@@ -43,7 +43,7 @@ def get_user_location():
     screen.blit(screenIm, (0, 0))
 
     # add the text over the screen object
-    screen.blit(text1, (200, 300))
+    screen.blit(text1, (550, 20))
 
     # will update the contents of the entire display window
     pygame.display.flip()
