@@ -316,6 +316,8 @@ def detect_language(question):
 def chat():
     start = False
     keep_looping = True
+    print("*NOTE: Type 'provide me with your services' to go to the F&B Recommendation service")
+    print()
     question = input('Type and enter to chat : ')
     f = detect_language(question)
     question = f[0]
@@ -332,7 +334,8 @@ def chat():
             else:
                 print('bot : ', answer)
                 print('')
-            print("*NOTE: Type 'Provide me with your services' to show a list of options for F&B Recommendation ")
+            print("*NOTE: Type 'provide me with your services' to go to the F&B Recommendation service")
+            print()
             question = input('Type and enter to chat : ')
             f = detect_language(question)
             question = f[0]
