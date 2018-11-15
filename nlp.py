@@ -332,6 +332,7 @@ def chat():
             else:
                 print('bot : ', answer)
                 print('')
+            print("*NOTE: Type 'Provide me with your services' to show a list of options for F&B Recommendation ")
             question = input('Type and enter to chat : ')
             f = detect_language(question)
             question = f[0]
