@@ -117,8 +117,9 @@ def find_response_pronoun(text_tags):
 SELF_VERBS_WITH_NOUN_CAPS_PLURAL = [
     "My last startup totally crushed the {noun} vertical",
     "Were you aware I was a serial entrepreneur in the {noun} sector?",
-    "My startup is Uber for {noun}",
+    "Don't you know that I have a phD in the field of {noun}",
     "I really consider myself an expert on {noun}",
+    "Hah! I already know I have a niche in {noun}"
 ]
 
 SELF_VERBS_WITH_NOUN_LOWER = [
