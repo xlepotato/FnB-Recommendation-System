@@ -21,11 +21,8 @@ def greeting(sentence, translate):
     cap_greeting_responses = []
     text = TextBlob(sentence)
     sentence = preprocess(text, translate)
-    # print(sentence)
     sentence = word_tokenize(sentence)
     for word in sentence:
-        # w = Word(word)
-        # print(w.spellcheck())
         if word.lower() in GREETING_KEYWORDS:
             for wo in GREETING_RESPONSES:
                 cap_greeting_responses.append(wo.capitalize())
@@ -46,17 +43,13 @@ def preprocess(text, translate):
     clean_text = clean_text.replace('charcot', 'chatbot')
     clean_text = clean_text.replace('cut', 'cute')
     clean_text = clean_text.replace('iii', 'hi')
-    # if clean_text[0] == 'h' and clean_text[1] == 'i':
-    #     for letter in clean_text[2:]:
-    #         if letter == 'i':
-    #             clean_text = clean_text.replace(clean_text, 'hi')
+
 
     return clean_text
 
 
 def find_all_noun_in_sentence(text_tags):
     noun_list = []
-    noun = None
     for word, pos in text_tags:
         if pos == 'NN' or pos == 'NNS':  # NN is short for noun, NNS is short for noun_plural
             noun_list.append(word)
@@ -182,15 +175,11 @@ def respond(ques, translate, lan):
 
         # find parts of speech
         text = TextBlob(clean_text)
-        print(text)
         text_tags = text.tags
-        print(text_tags)
 
         noun = find_noun(text_tags)
         noun_list = find_all_noun_in_sentence(text_tags)
         verb = find_verb(text_tags)
-        print(verb, " verb")
-        print(noun_list)
         for noun in noun_list:
             if noun == "service" or noun == "services":  # checks if the noun matches the hotword to the F&B recommendation option display
                 #Look for possible synonyms for words in the recommendation hotword list.
