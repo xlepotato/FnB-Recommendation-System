@@ -317,7 +317,9 @@ def chat():
     start = False
     keep_looping = True
     print()
-    print('Hello, welcome to our program! This is a chat bot, you can talk with it by saying things like "Hi!"')
+    print('Hello, welcome to our program! This is a chat bot, you can talk with it by saying things like "hi"')
+    print("The chat box requires internet connection, otherwise it won't work")
+    print("You can type in any language, by the way!")
     print('To quit the program, just type "bye"')
     print('To go to the F&B Recommendation Program, type "provide me with your services"')
     print()
@@ -337,7 +339,7 @@ def chat():
             else:
                 print('bot : ', answer)
                 print('')
-            print("**NOTE: To go to the F&B Recommendation service, try typing eg.'provide me with your services'")
+            print("To go to the F&B Recommendation Program, type 'provide me with your services'")
             print()
             question = input('Type and enter to chat : ')
             f = detect_language(question)
