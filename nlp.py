@@ -316,7 +316,10 @@ def detect_language(question):
 def chat():
     start = False
     keep_looping = True
-    print("**NOTE: To go to the F&B Recommendation service, try typing eg.'provide me with your services'")
+    print()
+    print('Hello, welcome to our program! This is a chat bot, you can talk with it by saying things like "Hi!"')
+    print('To quit the program, just type "bye"')
+    print('To go to the F&B Recommendation Program, type "provide me with your services"')
     print()
     question = input('Type and enter to chat : ')
     f = detect_language(question)
